@@ -37,7 +37,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     setupVTK();
-    loadInitialPartsFromFolder("D:/Level0");
+    loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
+   
+
     emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
 }
 
