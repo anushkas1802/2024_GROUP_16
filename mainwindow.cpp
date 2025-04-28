@@ -37,29 +37,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     setupVTK();
-
-    // Load folder path from environment variable
-    QString folderPath = qEnvironmentVariable("LEVEL0_PATH");
-
-    // If environment variable is not set or empty, ask user to select a folder
-    if (folderPath.isEmpty()) {
-        folderPath = QFileDialog::getExistingDirectory(
-            this,
-            "Select Initial Parts Folder",
-            QDir::homePath(),
-            QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-        );
-    }
-
-    // If still empty (user cancelled), use fallback
-    if (folderPath.isEmpty()) {
-        folderPath = "D:/Level0"; // Default fallback
-        QMessageBox::warning(this, "Folder Not Selected", "No folder selected. Using default path: D:/Level0");
-    }
-
-    qDebug() << "Using folder path:" << folderPath;
-    loadInitialPartsFromFolder(folderPath);
-
+    loadInitialPartsFromFolder("D:/Level0");
     emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
 }
 
@@ -179,8 +157,7 @@ void MainWindow::showContextMenu(const QPoint& pos)
     contextMenu.exec(ui->treeView->viewport()->mapToGlobal(pos));
 }
 
-void MainWindow::updateRender()
-{
+void MainWindow::updateRender() {
     renderer->RemoveAllViewProps();
 
     int topLevelCount = partList->rowCount(QModelIndex());
@@ -195,6 +172,7 @@ void MainWindow::updateRender()
 
     renderWindow->Render();
 }
+
 
 void MainWindow::updateRenderFromTree(const QModelIndex& index)
 {
