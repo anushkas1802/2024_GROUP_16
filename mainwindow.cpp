@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     setupVTK();
-    loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Level0");
+    loadInitialPartsFromFolder("D:/Level0");
     emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
 }
 
@@ -205,14 +205,21 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
         return;
     }
 
+    loadPartsRecursively(dir, partList->getRootItem());
+    updateRender();
+}
+
+void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
+{
     QStringList filters;
     filters << "*.stl" << "*.STL";
-    QFileInfoList fileList = dir.entryInfoList(filters, QDir::Files);
 
+    // Load STL files in this directory
+    QFileInfoList fileList = dir.entryInfoList(filters, QDir::Files);
     for (const QFileInfo& fileInfo : fileList) {
         QString filePath = fileInfo.absoluteFilePath();
-        ModelPart* part = new ModelPart({ fileInfo.fileName(), 0 }, partList->getRootItem());
-        partList->getRootItem()->appendChild(part);
+        ModelPart* part = new ModelPart({ fileInfo.fileName(), 0 }, parentItem);
+        parentItem->appendChild(part);
 
         part->loadSTL(filePath);
         part->setVisible(false);  // Default invisible
@@ -220,5 +227,19 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
         qDebug() << "Loaded" << filePath << "and set to invisible.";
     }
 
-    updateRender();
+    // Now handle subdirectories
+    QFileInfoList dirList = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QFileInfo& subdirInfo : dirList) {
+        QString subdirPath = subdirInfo.absoluteFilePath();
+        QDir subdir(subdirPath);
+
+        // Create a ModelPart to represent the folder
+        ModelPart* folderItem = new ModelPart({ subdirInfo.fileName(), 0 }, parentItem);
+        parentItem->appendChild(folderItem);
+
+        qDebug() << "Created folder node:" << subdirPath;
+
+        // Recursively load parts from the subfolder
+        loadPartsRecursively(subdir, folderItem);
+    }
 }
