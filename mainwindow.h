@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QModelIndex>
+#include <QDir>
 
 
 // Forward declarations
@@ -39,6 +40,7 @@ private slots:
     void on_actionItemOptions_triggered();
     void statusUpdateMessage(const QString &message, int timeout); // ✅ Slot for displaying status messages
     void loadInitialPartsFromFolder(const QString& folderPath);
+    void loadPartsRecursively(const QDir& dir, ModelPart* parentItem);
 
 private:
     QModelIndex contextMenuIndex;  // To track right-clicked item
