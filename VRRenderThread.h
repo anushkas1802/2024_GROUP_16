@@ -66,7 +66,7 @@ public:
       */
     void issueCommand( int cmd, double value );
 
-
+    void changeActorColour(vtkActor* actor, double r, double g, double b);
 protected:
     /** This is a re-implementation of a QThread function 
       */

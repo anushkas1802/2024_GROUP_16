@@ -5,6 +5,7 @@
 #include <QModelIndex>
 #include <QDir>
 
+#include "VRRenderThread.h"
 
 // Forward declarations
 class ModelPart;
@@ -44,6 +45,9 @@ private slots:
 
 private:
     QModelIndex contextMenuIndex;  // To track right-clicked item
+
+private:
+    VRRenderThread* vrThread = nullptr;
 
 private:
     Ui::MainWindow *ui;

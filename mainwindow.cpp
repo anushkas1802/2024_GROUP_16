@@ -41,6 +41,8 @@ MainWindow::MainWindow(QWidget* parent)
    
 
     emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
+
+    vrThread = new VRRenderThread(this);
 }
 
 MainWindow::~MainWindow()
@@ -97,6 +99,18 @@ void MainWindow::on_actionItemOptions_triggered()
 
         QColor chosenColor = optionDialog.getColor();
         selectedPart->setColour(chosenColor.red(), chosenColor.green(), chosenColor.blue());
+
+        if (vrThread && vrThread->isRunning()) {
+            vtkActor* actor = selectedPart->getActor();
+            if (actor) {
+                vrThread->changeActorColor(
+                    actor, 
+                    chosenColor.red()/255
+                    chosenColor.green() / 255
+                    chosenColor.blue() / 255
+                )
+            }
+        }
 
         selectedPart->setVisible(optionDialog.isVisible());
         partList->dataChanged(index, index);
@@ -224,6 +238,9 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         parentItem->appendChild(part);
 
         part->loadSTL(filePath);
+        if (vrThread && part->getActor()) {
+            vrThread->addActorOffline(part->getActor());
+        }
         part->setVisible(false);  // Default invisible
 
         qDebug() << "Loaded" << filePath << "and set to invisible.";
