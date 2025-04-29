@@ -17,6 +17,7 @@
 #include <vtkOpenVRRenderer.h>					
 #include <vtkOpenVRCamera.h>	
 
+#include <vtkActorCollection.h>
 #include <vtkNew.h>
 #include <vtkSmartPointer.h>
 #include <vtkNamedColors.h>
@@ -35,7 +36,7 @@
  */
 VRRenderThread::VRRenderThread( QObject* parent ) {
 	/* Initialise actor list */
-	actors =vtkSmartPointer<vtkActorCollection::New();
+	actors =vtkSmartPointer<vtkActorCollection>::New();
 
 	/* Initialise command variables */
 	rotateX = 0.;

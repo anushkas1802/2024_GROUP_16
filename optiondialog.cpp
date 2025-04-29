@@ -9,6 +9,13 @@ OptionDialog::OptionDialog(QWidget* parent)
     ui->redSpinBox->setRange(0, 255);
     ui->greenSpinBox->setRange(0, 255);
     ui->blueSpinBox->setRange(0, 255);
+
+    s_red = new QSlider(this);
+    s_red->setRange(0, 255);
+    s_red->setOrientation(Qt::Horizontal);
+    s_red->move(10,10);
+    s_red->setValue (10);
+
 }
 
 OptionDialog::~OptionDialog()

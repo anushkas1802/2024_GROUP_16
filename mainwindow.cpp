@@ -3,6 +3,7 @@
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include "optiondialog.h"
+#include "VRRenderThread.h"
 
 #include <QFileDialog>
 #include <QMenu>
@@ -18,6 +19,13 @@
 #include <vtkActor.h>
 #include <vtkProperty.h>
 #include <vtkCamera.h>
+#include <vtkNew.h>
+#include <vtkSmartPointer.h>
+#include <vtkNamedColors.h>
+#include <vtkCylinderSource.h>
+#include <vtkSTLReader.h>
+#include <vtkDataSetmapper.h>
+#include <vtkCallbackCommand.h>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
