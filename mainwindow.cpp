@@ -40,7 +40,11 @@ MainWindow::MainWindow(QWidget* parent)
     //loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
    
 
-    //emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
+
+    emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
+
+    vrThread = new VRRenderThread(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -80,28 +84,53 @@ void MainWindow::handleButton()
 
 void MainWindow::on_actionItemOptions_triggered()
 {
+    // Get the currently selected item in the tree view
     QModelIndex index = ui->treeView->currentIndex();
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
 
+    // If no item is selected, show a warning message and exit
     if (!selectedPart) {
         QMessageBox::warning(this, "No Selection", "Please select an item first.");
         return;
     }
 
+    // Create and initialize the option dialog
     OptionDialog optionDialog(this);
     QColor currentColor(selectedPart->getColourR(), selectedPart->getColourG(), selectedPart->getColourB());
     optionDialog.setValues(selectedPart->data(0).toString(), currentColor, selectedPart->visible());
 
+    // If the user clicks "OK" in the dialog
     if (optionDialog.exec() == QDialog::Accepted) {
+        // Update the model part's name using the dialog's new name
         selectedPart->setData(0, optionDialog.getName());
 
+        // Get the chosen color from the dialog and update the model part
         QColor chosenColor = optionDialog.getColor();
         selectedPart->setColour(chosenColor.red(), chosenColor.green(), chosenColor.blue());
 
+        // If the VR thread is running, update the corresponding VTK actor color
+        if (vrThread && vrThread->isRunning()) {
+            vtkActor* actor = selectedPart->getActor();
+            if (actor) {
+                vrThread->changeActorColor(
+                    actor,
+                    chosenColor.red() / 255.0,
+                    chosenColor.green() / 255.0,
+                    chosenColor.blue() / 255.0
+                );
+            }
+        }
+
+        // Update the visibility of the model part
         selectedPart->setVisible(optionDialog.isVisible());
+
+        // Notify the model/view that the data for this index has changed
         partList->dataChanged(index, index);
 
+        // Trigger a render update in the viewer
         updateRender();
+
+        // Emit a signal to display a status message for 2 seconds
         emit statusUpdateMessageSignal("Updated item options", 2000);
     }
 }
@@ -200,6 +229,17 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
     updateRender();
 }
 
+void MainWindow::startVRRendering() {
+    if (vrThread && !vrThread->isRunning()) {
+        vrThread->start();
+        emit statusUpdateMessageSignal("VR thread started", 2000);
+    }
+    else {
+        emit statusUpdateMessageSignal("VR thread is already running", 2000);
+    }
+}
+
+
 void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
 {
     QStringList filters;
@@ -213,6 +253,9 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         parentItem->appendChild(part);
 
         part->loadSTL(filePath);
+        if (vrThread && part->getActor()) {
+            vrThread->addActorOffline(part->getActor());
+        }
         part->setVisible(false);  // Default invisible
 
         qDebug() << "Loaded" << filePath << "and set to invisible.";
@@ -233,4 +276,5 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         // Recursively load parts from the subfolder
         loadPartsRecursively(subdir, folderItem);
     }
+
 }

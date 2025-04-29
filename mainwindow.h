@@ -5,6 +5,7 @@
 #include <QModelIndex>
 #include <QDir>
 
+#include "VRRenderThread.h"
 
 // Forward declarations
 class ModelPart;
@@ -40,10 +41,15 @@ private slots:
     void on_actionItemOptions_triggered();
     void statusUpdateMessage(const QString &message, int timeout); // ✅ Slot for displaying status messages
     void loadInitialPartsFromFolder(const QString& folderPath);
-    void loadPartsRecursively(const QDir& dir, ModelPart* parentItem);
+    void loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
+    void startVRRendering();
 
 private:
     QModelIndex contextMenuIndex;  // To track right-clicked item
+
+private:
+    VRRenderThread* vrThread = nullptr;
+
 
 private:
     Ui::MainWindow *ui;

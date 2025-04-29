@@ -95,6 +95,12 @@ void VRRenderThread::issueCommand( int cmd, double value ) {
 	}
 }
 
+void VRRenderThread::changeActorColor(vtkActor* actor, double r, double g, double b) {
+	if (actor) {
+		actor->GetProperty()->SetColor(r, g, b);
+	}
+}
+
 /* This function runs in a separate thread. This means that the program 
  * can fork into two separate execution paths. This thread is triggered by
  * calling VRRenderThread::start()
