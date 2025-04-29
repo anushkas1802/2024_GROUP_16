@@ -40,9 +40,9 @@ MainWindow::MainWindow(QWidget* parent)
     loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
    
 
-   
+    emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
 
-    
+    vrThread = new VRRenderThread(this);
 }
 
 MainWindow::~MainWindow()
