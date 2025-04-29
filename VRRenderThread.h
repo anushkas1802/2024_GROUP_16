@@ -65,8 +65,8 @@ public:
       * action / animation / etc to perform. The rendering thread will then impelement this.
       */
     void issueCommand( int cmd, double value );
-
-    void changeActorColour(vtkActor* actor, double r, double g, double b);
+public:
+    void changeActorColor(vtkActor* actor, double r, double g, double b);
 protected:
     /** This is a re-implementation of a QThread function 
       */
@@ -92,7 +92,7 @@ private:
     /** This will be set to false by the constructor, if it is set to true
       * by the GUI then the rendering will end 
       */
-    bool                                                endRender;
+     bool                                                endRender;
 
     /* Some variables to indicate animation actions to apply.
      *

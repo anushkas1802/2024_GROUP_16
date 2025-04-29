@@ -29,7 +29,7 @@ public:
     ~MainWindow();
 
 signals:
-    void statusUpdateMessageSignal(const QString &message, int timeout); // ✅ Signal for status updates
+    void statusUpdateMessageSignal(const QString &message, int timeout);
 
 private slots:
     void handleButton();
@@ -39,9 +39,9 @@ private slots:
     void handleTreeClicked();
     void on_actionOpenFile_triggered();
     void on_actionItemOptions_triggered();
-    void statusUpdateMessage(const QString &message, int timeout); // ✅ Slot for displaying status messages
+    void statusUpdateMessage(const QString &message, int timeout); 
     void loadInitialPartsFromFolder(const QString& folderPath);
-    void loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
+    void loadPartsRecursively(const QDir& dir, ModelPart* parentItem);
     void startVRRendering();
 
 private:

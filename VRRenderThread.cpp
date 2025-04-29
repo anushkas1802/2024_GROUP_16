@@ -35,7 +35,7 @@
  */
 VRRenderThread::VRRenderThread( QObject* parent ) {
 	/* Initialise actor list */
-	actors = vtkActorCollection::New();
+	actors =vtkSmartPointer<vtkActorCollection::New();
 
 	/* Initialise command variables */
 	rotateX = 0.;
@@ -122,7 +122,7 @@ void VRRenderThread::run() {
 	// The renderer generates the image
 	// which is then displayed on the render window.
 	// It can be thought of as a scene to which the actor is added
-	renderer = vtkOpenVRRenderer::New();	
+	renderer = vtkSmartPointer<vtkOpenVRRenderer>::New();
 	
 	renderer->SetBackground(colors->GetColor3d("BkgColor").GetData());
 	
@@ -136,20 +136,21 @@ void VRRenderThread::run() {
 	/* The render window is the actual GUI window
 	 * that appears on the computer screen
 	 */
-	window = vtkOpenVRRenderWindow::New();
+	window = vtkSmartPointer<vtkOpenVRRenderWindow>::New();
 
 	window->Initialize();
 	window->AddRenderer(renderer);
 	
 	/* Create Open VR Camera */
-	camera = vtkOpenVRCamera::New();				
+	camera = vtkSmartPointer<vtkOpenVRCamera>::New();
+
 	renderer->SetActiveCamera(camera);			
 
 	/* The render window interactor captures mouse events
 	 * and will perform appropriate camera or actor manipulation
 	 * depending on the nature of the events.
 	 */
-	interactor = vtkOpenVRRenderWindowInteractor::New();									
+	interactor = vtkSmartPointer<vtkOpenVRRenderWindowInteractor>::New();
 	interactor->SetRenderWindow(window);													
 	interactor->Initialize();
 	window->Render();
