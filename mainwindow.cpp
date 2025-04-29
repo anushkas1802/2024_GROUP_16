@@ -37,10 +37,10 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     setupVTK();
-    loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
+    //loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
    
 
-    emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
+    //emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
 }
 
 MainWindow::~MainWindow()
@@ -126,25 +126,14 @@ void MainWindow::handleTreeClicked()
 
 void MainWindow::on_actionOpenFile_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(
-        this, "Open File", "C:/", "STL Files (*.stl);;Text Files (*.txt)");
+    QString folderPath = QFileDialog::getExistingDirectory(this, "Select Repositry Folder", QDir::homePath());
 
-    if (!fileName.isEmpty()) {
+    if (!folderPath.isEmpty()) {
         partList->clear();
         renderer->RemoveAllViewProps();
 
-        ModelPart* newPart = new ModelPart({ fileName, 0 });
-        partList->getRootItem()->appendChild(newPart);
-        newPart->loadSTL(fileName);
-        newPart->setVisible(true);
+        loadInitialPartsFromFolder(folderPath);
 
-        updateRender();
-
-        QFileInfo fileInfo(fileName);
-        emit statusUpdateMessageSignal("Opened file: " + fileInfo.fileName(), 2000);
-    }
-    else {
-        emit statusUpdateMessageSignal("File open canceled", 2000);
     }
 }
 
