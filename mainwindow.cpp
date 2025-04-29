@@ -104,11 +104,11 @@ void MainWindow::on_actionItemOptions_triggered()
             vtkActor* actor = selectedPart->getActor();
             if (actor) {
                 vrThread->changeActorColor(
-                    actor, 
-                    chosenColor.red()/255
-                    chosenColor.green() / 255
+                    actor,
+                    chosenColor.red() / 255,
+                    chosenColor.green() / 255,
                     chosenColor.blue() / 255
-                )
+                );
             }
         }
 
@@ -225,6 +225,17 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
     updateRender();
 }
 
+void MainWindow::startVRRendering() {
+    if (vrThread && !vrThread->isRunning()) {
+        vrThread->start();
+        emit statusUpdateMessageSignal("VR thread started", 2000);
+    }
+    else {
+        emit statusUpdateMessageSignal("VR thread is already running", 2000);
+    }
+}
+
+
 void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
 {
     QStringList filters;
@@ -261,4 +272,5 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         // Recursively load parts from the subfolder
         loadPartsRecursively(subdir, folderItem);
     }
+
 }
