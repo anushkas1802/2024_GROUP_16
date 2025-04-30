@@ -43,6 +43,8 @@ private slots:
     void loadInitialPartsFromFolder(const QString& folderPath);
     void loadPartsRecursively(const QDir& dir, ModelPart* parentItem);
     void startVRRendering();
+    void handleStartVR();
+ 
 
 private:
     QModelIndex contextMenuIndex;  // To track right-clicked item
@@ -58,8 +60,11 @@ private:
     vtkSmartPointer<vtkRenderer> renderer;
     vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
 
-    void setupVTK(); // ✅ Function to initialize VTK rendering
+    void setupVTK(); 
     void showContextMenu(const QPoint &pos);
+
+    void addVisiblePartsToVR(VRRenderThread* thread);
+    void addPartsFromTree(const QModelIndex& index, VRRenderThread* thread);
 };
 
 #endif // MAINWINDOW_H

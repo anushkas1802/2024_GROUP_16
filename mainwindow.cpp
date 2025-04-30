@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->addButton, &QPushButton::released, this, &MainWindow::handleButton);
     connect(ui->openOptions, &QPushButton::released, this, &MainWindow::handleOpenOptions);
     connect(this, &MainWindow::statusUpdateMessageSignal, ui->statusbar, &QStatusBar::showMessage);
+    connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::handleStartVR);
 
     this->partList = new ModelPartList("PartsList");
     ui->treeView->setModel(this->partList);
@@ -57,6 +58,12 @@ MainWindow::MainWindow(QWidget* parent)
 
 MainWindow::~MainWindow()
 {
+    if (vrThread && vrThread->isRunning())
+    {
+        vrThread->issueCommand(VRRenderThread::END_RENDER, 0.0);
+        vrThread->wait(); //Wait for thread to safely exit
+    }
+    delete vrThread;
     delete ui;
 }
 
@@ -285,4 +292,43 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         loadPartsRecursively(subdir, folderItem);
     }
 
+}
+
+void MainWindow::handleStartVR() {
+    if (vrThread && vrThread->isRunning()) {
+
+        QMessageBox::information(this, "VR", "VR is already running.");
+            return;
+    }
+
+    vrThread = new VRRenderThread();
+
+    addVisiblePartsToVR(vrThread);
+
+    vrThread->start();
+
+    emit statusUpdateMessageSignal("VR started", 2000);
+    }
+
+void MainWindow::addVisiblePartsToVR(VRRenderThread* thread) {
+    int topLevelCount = partList->rowCount(QModelIndex());
+    for (int i = 0; i < topLevelCount; ++i) {
+        QModelIndex topIndex = partList->index(i, 0, QModelIndex());
+        addPartsFromTree(topIndex, thread);
+    }
+}
+
+void MainWindow ::addPartsFromTree(const QModelIndex& index, VRRenderThread* thread){
+
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    if (selectedPart && selectedPart->visible()) {
+        vtkSmartPointer<vtkActor> actor = selectedPart->getActor();
+        if (actor) {
+            thread->addActorOffline(actor);
+        }
+    }
+    int rows = partList->rowCount(index);
+    for (int i = 0; i < rows; i++) {
+        addPartsFromTree(partList->index(i, 0, index), thread);
+    }
 }

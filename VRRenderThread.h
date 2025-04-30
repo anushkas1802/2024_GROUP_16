@@ -38,13 +38,13 @@ class VRRenderThread : public QThread {
 
 public:
     /** List of command names */
-    enum {
+    enum issueCommand{
         END_RENDER,
         ROTATE_X,
         ROTATE_Y,
         ROTATE_Z
-    } Command;
-
+    };
+    void issueCommand(int cmd, double value);
 
     /**  Constructor
       */
@@ -64,7 +64,7 @@ public:
       * Function will set variables within the class to indicate the type of
       * action / animation / etc to perform. The rendering thread will then impelement this.
       */
-    void issueCommand( int cmd, double value );
+    
 public:
     void changeActorColor(vtkActor* actor, double r, double g, double b);
 protected:
