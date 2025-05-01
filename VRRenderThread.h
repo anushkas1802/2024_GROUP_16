@@ -9,9 +9,9 @@
 #ifndef VR_RENDER_THREAD_H
 #define VR_RENDER_THREAD_H
 
-/* Project headers */
+  /* Project headers */
 
-/* Qt headers */
+  /* Qt headers */
 #include <QThread>
 #include <QMutex>
 #include <QWaitCondition>
@@ -28,7 +28,7 @@
 
 
 /* Note that this class inherits from the Qt class QThread which allows it to be a parallel thread
- * to the main() thread, and also from vtkCommand which allows it to act as a "callback" for the 
+ * to the main() thread, and also from vtkCommand which allows it to act as a "callback" for the
  * vtkRenderWindowInteractor. This callback functionallity means that once the renderWindowInteractor
  * takes control of this thread to enable VR, it can callback to a function in the class to check to see
  * if the user has requested any changes
@@ -38,13 +38,13 @@ class VRRenderThread : public QThread {
 
 public:
     /** List of command names */
-    enum issueCommand{
+    enum {
         END_RENDER,
         ROTATE_X,
         ROTATE_Y,
         ROTATE_Z
-    };
-    void issueCommand(int cmd, double value);
+    } Command;
+
 
     /**  Constructor
       */
@@ -55,20 +55,20 @@ public:
     ~VRRenderThread();
 
     /** This allows actors to be added to the VR renderer BEFORE the VR
-      * interactor has been started 
+      * interactor has been started
      */
     void addActorOffline(vtkActor* actor);
 
 
-    /** This allows commands to be issued to the VR thread in a thread safe way. 
+    /** This allows commands to be issued to the VR thread in a thread safe way.
       * Function will set variables within the class to indicate the type of
       * action / animation / etc to perform. The rendering thread will then impelement this.
       */
-    
-public:
-    void changeActorColor(vtkActor* actor, double r, double g, double b);
+    void issueCommand(int cmd, double value);
+
+
 protected:
-    /** This is a re-implementation of a QThread function 
+    /** This is a re-implementation of a QThread function
       */
     void run() override;
 
@@ -80,7 +80,7 @@ private:
     vtkSmartPointer<vtkOpenVRCamera>                    camera;
 
     /* Use to synchronise passing of data to VR thread */
-    QMutex                                              mutex;      
+    QMutex                                              mutex;
     QWaitCondition                                      condition;
 
     /** List of actors that will need to be added to the VR scene */
@@ -90,9 +90,9 @@ private:
     std::chrono::time_point<std::chrono::steady_clock>  t_last;
 
     /** This will be set to false by the constructor, if it is set to true
-      * by the GUI then the rendering will end 
+      * by the GUI then the rendering will end
       */
-     bool                                                endRender;
+    bool                                                endRender;
 
     /* Some variables to indicate animation actions to apply.
      *

@@ -8,6 +8,7 @@
 #include <vtkSTLReader.h>
 #include <vtkMapper.h>
 #include <vtkActor.h>
+#include <vtkDataSetMapper.h>
 
 class ModelPart {
 public:
@@ -20,7 +21,7 @@ public:
     int columnCount() const;
     QVariant data(int column) const;
     void setData(int column, const QVariant& value);
-
+    vtkActor* getNewActor();
     ModelPart* parentItem();
     int row() const;
 
@@ -43,6 +44,8 @@ public:
     QColor getColor() const;
     void setColor(const QColor& color);
 
+    vtkSmartPointer<vtkPolyData> polyData;
+
 private:
     QList<ModelPart*> m_childItems;
     QList<QVariant> m_itemData;
@@ -52,6 +55,8 @@ private:
     vtkSmartPointer<vtkSTLReader> stlReader;
     vtkSmartPointer<vtkMapper> stlMapper;
     vtkSmartPointer<vtkActor> stlActor;
+    vtkSmartPointer<vtkDataSetMapper> newMapper;
+    vtkSmartPointer<vtkActor> newActor;
 
     unsigned char colourR = 255;  // Default color: white
     unsigned char colourG = 255;

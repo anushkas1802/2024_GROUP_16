@@ -127,12 +127,12 @@ void MainWindow::on_actionItemOptions_triggered()
         if (vrThread && vrThread->isRunning()) {
             vtkActor* actor = selectedPart->getActor();
             if (actor) {
-                vrThread->changeActorColor(
+                /*vrThread->changeActorColor(
                     actor,
                     chosenColor.red() / 255.0,
                     chosenColor.green() / 255.0,
-                    chosenColor.blue() / 255.0
-                );
+                    chosenColor.blue() / 255.0*/
+                //);
             }
         }
 
@@ -245,6 +245,9 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
 }
 
 void MainWindow::startVRRendering() {
+
+    // loop through tree and add actors using add actor offline
+
     if (vrThread && !vrThread->isRunning()) {
         vrThread->start();
         emit statusUpdateMessageSignal("VR thread started", 2000);
@@ -268,11 +271,11 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         parentItem->appendChild(part);
 
         part->loadSTL(filePath);
-        if (vrThread && part->getActor()) {
-            vrThread->addActorOffline(part->getActor());
-            // Debug
-            qDebug() << "MainThread Sending actor to VR Thread:" << part->data(0).toString();
-        }
+        //if (vrThread && part->getNewActor()) {
+        //    vrThread->addActorOffline(part->getNewActor());
+        //    // Debug
+        //    qDebug() << "MainThread Sending actor to VR Thread:" << part->data(0).toString();
+        //}
         part->setVisible(false);  // Default invisible
 
         qDebug() << "Loaded" << filePath << "and set to invisible.";
@@ -331,8 +334,8 @@ void MainWindow::addVisiblePartsToVR(VRRenderThread* thread) {
 void MainWindow ::addPartsFromTree(const QModelIndex& index, VRRenderThread* thread){
 
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
-    if (selectedPart && selectedPart->visible()) {
-        vtkSmartPointer<vtkActor> actor = selectedPart->getActor();
+    if (selectedPart->visible()) {
+        vtkSmartPointer<vtkActor> actor = selectedPart->getNewActor();
         if (actor) {
             thread->addActorOffline(actor);
         }

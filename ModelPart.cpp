@@ -3,7 +3,8 @@
 #include <vtkPolyDataMapper.h>
 #include <vtkActor.h>
 #include <vtkProperty.h>
-
+#include <vtkPolyData.h>
+#include <vtkDataSetMapper.h>
 ModelPart::ModelPart(const QList<QVariant>& data, ModelPart* parent)
     : m_itemData(data), m_parentItem(parent) {
 }
@@ -79,19 +80,18 @@ bool ModelPart::visible() const {
 }
 
 void ModelPart::loadSTL(QString fileName) {
-    vtkSmartPointer<vtkSTLReader> reader = vtkSmartPointer<vtkSTLReader>::New();
-    reader->SetFileName(fileName.toStdString().c_str());
-    reader->Update();
+    stlReader = vtkSmartPointer<vtkSTLReader>::New();
+    stlReader->SetFileName(fileName.toStdString().c_str());
+    stlReader->Update();
 
-    vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-    mapper->SetInputConnection(reader->GetOutputPort());
+    stlMapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+    stlMapper->SetInputConnection(stlReader->GetOutputPort());
 
     vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
-    actor->SetMapper(mapper);
+    actor->SetMapper(stlMapper);
 
-    this->stlReader = reader;
-    this->stlMapper = mapper;
     this->stlActor = actor;
+
 }
 
 vtkSmartPointer<vtkActor> ModelPart::getActor() {
@@ -111,4 +111,46 @@ QColor ModelPart::getColor() const {
 
 void ModelPart::setColor(const QColor& color) {
     setColour(color.red(), color.green(), color.blue());
+}
+
+//vtkActor* ModelPart::getNewActor() {
+    /* This is a placeholder function that you will need to modify if you want to use it
+     *
+     * The default mapper/actor combination can only be used to render the part in
+     * the GUI, it CANNOT also be used to render the part in VR. This means you need
+     * to create a second mapper/actor combination for use in VR - that is the role
+     * of this function. */
+
+
+     /* 1. Create new mapper */
+
+     /* 2. Create new actor and link to mapper */
+
+     /* 3. Link the vtkProperties of the original actor to the new actor. This means
+      *    if you change properties of the original part (colour, position, etc), the
+      *    changes will be reflected in the GUI AND VR rendering.
+      *
+      *    See the vtkActor documentation, particularly the GetProperty() and SetProperty()
+      *    functions.
+      */
+
+
+      /* The new vtkActor pointer must be returned here */
+  //    return nullptr;
+
+  //}
+
+vtkActor* ModelPart::getNewActor() {
+    if (!this->stlActor) {
+        return nullptr;
+    }
+    newMapper = vtkSmartPointer<vtkDataSetMapper>::New();
+    newMapper->SetInputConnection(stlReader->GetOutputPort());
+
+    newActor = vtkSmartPointer<vtkActor>::New();
+    newActor->SetMapper(newMapper);
+
+    newActor->SetProperty(this->stlActor->GetProperty());
+
+    return newActor;
 }
