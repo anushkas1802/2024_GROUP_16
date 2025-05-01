@@ -9,6 +9,7 @@
 
 #include "VRRenderThread.h"
 
+#include <qDebug>
 
 /* Vtk headers */
 #include <vtkActor.h>
@@ -27,6 +28,7 @@
 #include <vtkSTLReader.h>
 #include <vtkDataSetmapper.h>
 #include <vtkCallbackCommand.h>
+
 
 
 /* The class constructor is called by MainWindow and runs in the primary program thread, this thread
@@ -68,6 +70,7 @@ void VRRenderThread::addActorOffline( vtkActor* actor ) {
 		actor->AddPosition(-ac[0]+0, -ac[1]-100, -ac[2]-200);
 
 		actors->AddItem(actor);
+		qDebug() << "VR render Actor added offline:" << actors->GetNumberOfItems();
 	}
 }
 
@@ -132,6 +135,7 @@ void VRRenderThread::run() {
 	actors->InitTraversal();
 	while( (a = (vtkActor*)actors->GetNextActor() ) ) {
 		renderer->AddActor(a);
+		qDebug() << "VRThread adding actors to renderer:";
 	}
 
 	/* The render window is the actual GUI window

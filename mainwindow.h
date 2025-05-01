@@ -30,6 +30,7 @@ public:
 
 signals:
     void statusUpdateMessageSignal(const QString &message, int timeout);
+    void sendActors(vtkActorCollection* actors);
 
 private slots:
     void handleButton();

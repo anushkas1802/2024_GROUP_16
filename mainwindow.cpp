@@ -270,6 +270,8 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
         part->loadSTL(filePath);
         if (vrThread && part->getActor()) {
             vrThread->addActorOffline(part->getActor());
+            // Debug
+            qDebug() << "MainThread Sending actor to VR Thread:" << part->data(0).toString();
         }
         part->setVisible(false);  // Default invisible
 
@@ -301,11 +303,19 @@ void MainWindow::handleStartVR() {
             return;
     }
 
+    if (vrThread) {
+        vrThread->deleteLater(); // deletion of previous thread
+    }
+
     vrThread = new VRRenderThread();
 
     addVisiblePartsToVR(vrThread);
 
     vrThread->start();
+
+    qDebug() << "Emitting sendActors with" << renderer->GetActors()->GetNumberOfItems() << "actors";
+    emit sendActors(renderer->GetActors());
+
 
     emit statusUpdateMessageSignal("VR started", 2000);
     }
