@@ -46,8 +46,8 @@ private slots:
     void loadPartsRecursively(const QDir& dir, ModelPart* parentItem);
     void startVRRendering();
     void handleStartVR();
- 
-
+    void on_actionClearTreeView_triggered();
+    void handleStopVR();
 private:
     QModelIndex contextMenuIndex;  // To track right-clicked item
 

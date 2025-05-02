@@ -46,7 +46,9 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     connect(ui->actionOpenSingleFile, &QAction::triggered, this, &MainWindow::on_actionOpenSingleFile_triggered);
+    connect(ui->actionClearTreeView, &QAction::triggered, this, &MainWindow::on_actionClearTreeView_triggered);
 
+    connect(ui->stopVRButton, &QPushButton::clicked, this, &MainWindow::handleStopVR);
 
 
     setupVTK();
@@ -367,4 +369,35 @@ void MainWindow::on_actionOpenSingleFile_triggered()
     updateRender();
     emit statusUpdateMessageSignal("Loaded single file: " + fileInfo.fileName(), 2000);
     qDebug() << "Loaded single file:" << filePath;
+}
+
+void MainWindow::on_actionClearTreeView_triggered()
+{
+    // Clear the model (removes all ModelPart entries)
+    partList->clear();
+
+    // Clear all VTK actors from the renderer
+    renderer->RemoveAllViewProps();
+
+    // Trigger a render update to reflect the empty scene
+    renderWindow->Render();
+
+    // Optionally show a status bar message
+    emit statusUpdateMessageSignal("Tree view and VTK scene cleared", 2000);
+
+    // Optional debug
+    qDebug() << "Cleared tree view and VTK scene.";
+}
+
+void MainWindow::handleStopVR() {
+    if (vrThread && vrThread->isRunning()) {
+        vrThread->issueCommand(VRRenderThread::END_RENDER, 0.0); // assuming END_RENDER properly stops rendering
+        vrThread->wait(); // Wait until the thread has stopped
+        emit statusUpdateMessageSignal("VR thread stopped", 2000);
+        qDebug() << "VR thread stopped safely.";
+    }
+    else {
+        emit statusUpdateMessageSignal("VR thread was not running", 2000);
+        qDebug() << "No VR thread running to stop.";
+    }
 }
