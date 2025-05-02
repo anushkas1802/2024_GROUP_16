@@ -30,7 +30,7 @@ public:
       * @param parent is used by the parent class constructor
       */
     ModelPartList( const QString& data, QObject* parent = NULL );
-
+    void addPart(const QString& name, const QString& filePath);
     /** Destructor
       *  Frees root item allocated in constructor
       */

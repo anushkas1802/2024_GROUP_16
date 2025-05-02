@@ -39,6 +39,7 @@ private slots:
     void handleOpenOptions();
     void handleTreeClicked();
     void on_actionOpenFile_triggered();
+    void on_actionOpenSingleFile_triggered();
     void on_actionItemOptions_triggered();
     void statusUpdateMessage(const QString &message, int timeout); 
     void loadInitialPartsFromFolder(const QString& folderPath);

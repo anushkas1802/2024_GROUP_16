@@ -154,3 +154,4 @@ vtkActor* ModelPart::getNewActor() {
 
     return newActor;
 }
+

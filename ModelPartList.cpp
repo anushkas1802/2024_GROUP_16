@@ -152,3 +152,17 @@ void ModelPartList::clear()
 
     endResetModel(); // Notify Qt that the model has been reset
 }
+
+void ModelPartList::addPart(const QString& name, const QString& filePath)
+{
+    int row = rootItem->childCount();
+    beginInsertRows(QModelIndex(), row, row);
+
+    ModelPart* part = new ModelPart({ name, 0 }, rootItem);
+    rootItem->appendChild(part);
+
+    endInsertRows();
+
+    part->loadSTL(filePath);
+    part->setVisible(false);
+}

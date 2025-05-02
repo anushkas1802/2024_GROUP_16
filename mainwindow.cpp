@@ -45,8 +45,12 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::customContextMenuRequested, this, &MainWindow::showContextMenu);
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
+    connect(ui->actionOpenSingleFile, &QAction::triggered, this, &MainWindow::on_actionOpenSingleFile_triggered);
+
+
+
     setupVTK();
-    //loadInitialPartsFromFolder("C:/Users/eeyas37/2024_eeyas37/group16/2024_GROUP_16/Levels");
+    
    
 
 
@@ -344,4 +348,23 @@ void MainWindow ::addPartsFromTree(const QModelIndex& index, VRRenderThread* thr
     for (int i = 0; i < rows; i++) {
         addPartsFromTree(partList->index(i, 0, index), thread);
     }
+}
+
+void MainWindow::on_actionOpenSingleFile_triggered()
+{
+    QString filePath = QFileDialog::getOpenFileName(
+        this,
+        "Open STL File",
+        QDir::homePath(),
+        "STL Files (*.stl *.STL)");
+
+    if (filePath.isEmpty())
+        return;
+
+    QFileInfo fileInfo(filePath);
+    partList->addPart(fileInfo.fileName(), filePath);
+
+    updateRender();
+    emit statusUpdateMessageSignal("Loaded single file: " + fileInfo.fileName(), 2000);
+    qDebug() << "Loaded single file:" << filePath;
 }
