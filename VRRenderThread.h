@@ -8,6 +8,8 @@
   */
 #ifndef VR_RENDER_THREAD_H
 #define VR_RENDER_THREAD_H
+//clip filter defne
+#define APPLY_CLIP_FILTER 100
 
   /* Project headers */
 
@@ -100,6 +102,9 @@ private:
     double rotateX;         /*< Degrees to rotate around X axis (per time-step) */
     double rotateY;         /*< Degrees to rotate around Y axis (per time-step) */
     double rotateZ;         /*< Degrees to rotate around Z axis (per time-step) */
+
+    //clip filter 
+    bool applyClipRequested = false;
 };
 
 

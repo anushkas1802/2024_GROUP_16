@@ -27,6 +27,9 @@
 #include <vtkDataSetmapper.h>
 #include <vtkCallbackCommand.h>
 
+//clip filters headers
+#include <vtkCLipDataset.h>
+#include <vtkPlane.h>
 
 /* The class constructor is called by MainWindow and runs in the primary program thread, this thread
  * will go on to handle the GUI (mouse clicks, etc). The OpenVRRenderWindowInteractor cannot be start()ed
@@ -80,6 +83,12 @@ void VRRenderThread::issueCommand(int cmd, double value) {
 	case END_RENDER:
 		this->endRender = true;
 		break;
+
+    //clip filter 
+	case APPLY_CLIP_FILTER:
+		this->applyClipRequested = true;
+		break;
+	//clip filter 
 
 	case ROTATE_X:
 		this->rotateX = value;
@@ -197,5 +206,33 @@ void VRRenderThread::run() {
 			/* Remember time now */
 			t_last = std::chrono::steady_clock::now();
 		}
+
+	//start of clip filter 
+		if (applyClipRequested) {
+			vtkActorollection* actorList = renderer->GetActors();
+			actorList->InitTraversal();
+			vtkActor* a = (vtkActor*)actorList->GetNextActor();
+
+			if (a) {
+				vtkSmartPointer<vtkPlane> plane = vtkSmartPointer<vtkPlane>::New();
+				plane->SetOrigin(0.0, 0.0, 0.0);
+				plane->SetNormal(1.0, 0.0, 0.0);
+
+				vtkSmartPointer<vtkClipPolySet> clipFilter = vtkSmartPointer<vtkClipDpolySet>::New();
+				clipFilter->SetInputConnection(a->GetMapper()->GetInputConnection(0, 0));
+				clipFilter->SetClipFuntion(plane);
+				clipFilter->Update();
+
+				vtkSmartPointer<vtkPolySetMapper> ClipMapper = vtkSmartPointer<vtkDPolySetMapper>::New();
+				clipMapper->setInputCOnnection(clipFilter->GetOutputPort());
+
+				actor->SetMapper(ClipMapper);
+
+				qDebug() << "Clip filter is applied";
+
+			}
+			applyClipRequested = false;
+	    }
+	//end of clip filter
 	}
 }
