@@ -1,43 +1,32 @@
-name: Doxygen Deploy
+# doxygen=deploy .yml
+name: doxygen=deploy
 
 on:
   push:
-    branches:
-      - main  #default branch
-  workflow_dispatch: # Allows manual triggering of the workflow
+    branches: [ master ]
+    # Note: this needs to be set to your default branch
+    # name (this might be ”main” rather than ”master”
 
 jobs:
-  deploy-docs:
+  # The job that will build 2024_GROUP_16
+  deploy=2024_GROUP_16:
+    # Defines the operating system for the virtual computer
     runs-on: ubuntu-latest
-
+    # A list of steps to follow to complete the build
+    # (a list of commands to execute on the virtual computer)
     steps:
+      # This is a predefined action that checks out a copy of your code
       - name: Checkout
-        uses: actions/checkout@v3 # Use the latest version for security/features
+        uses: actions/checkout@v2
+      - name: Install doxygen
+        run: sudo apt-get install -y doxygen
+      - name: Run Doxygen
+        working-directory: ${{ github.workspace }}/Worksheet5
+        run: doxygen
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          fetch-depth: 0  # Needed for proper commit history in Doxygen
-
-      - name: Install Doxygen
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y doxygen
-
-      - name: Configure Doxygen
-        # You might need to adjust this step based on your Doxyfile location/needs
-        run: |
-          cd ${{ github.workspace }} # Go to the workspace root
-          # If your Doxyfile is in a subdirectory, adjust the 'cd' command
-          # Example: cd documentation 
-          echo "INPUT = ${{ github.workspace }}" >> Doxyfile.local # Override INPUT
-          echo "OUTPUT_DIRECTORY = ${{ github.workspace }}/public" >> Doxyfile.local # Set output dir
-          doxygen Doxyfile Doxyfile.local # Run Doxygen
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: public # The output directory from Doxygen
+          # The branch the action should deploy to.
           branch: gh-pages
-          clean: true   # Remove previous files before deploy
-
-      - name: Post-deployment cleanup
-        # Optional: Clean up generated files if desired
-        run: rm -rf public # Remove the generated 'public' directory
+          # The folder the action should deploy.
+          folder: ${{ github.workspace }}/Worksheet5/html
