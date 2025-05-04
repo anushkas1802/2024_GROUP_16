@@ -1,0 +1,43 @@
+name: Doxygen Deploy
+
+on:
+  push:
+    branches:
+      - main  #default branch
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3 # Use the latest version for security/features
+        with:
+          fetch-depth: 0  # Needed for proper commit history in Doxygen
+
+      - name: Install Doxygen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen
+
+      - name: Configure Doxygen
+        # You might need to adjust this step based on your Doxyfile location/needs
+        run: |
+          cd ${{ github.workspace }} # Go to the workspace root
+          # If your Doxyfile is in a subdirectory, adjust the 'cd' command
+          # Example: cd documentation 
+          echo "INPUT = ${{ github.workspace }}" >> Doxyfile.local # Override INPUT
+          echo "OUTPUT_DIRECTORY = ${{ github.workspace }}/public" >> Doxyfile.local # Set output dir
+          doxygen Doxyfile Doxyfile.local # Run Doxygen
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public # The output directory from Doxygen
+          branch: gh-pages
+          clean: true   # Remove previous files before deploy
+
+      - name: Post-deployment cleanup
+        # Optional: Clean up generated files if desired
+        run: rm -rf public # Remove the generated 'public' directory
