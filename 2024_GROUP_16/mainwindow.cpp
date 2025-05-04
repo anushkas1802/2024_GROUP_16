@@ -1,4 +1,10 @@
-// Includes of the code file headers
+/**
+ * @file mainwindow.cpp
+ * @brief Implementation of the MainWindow class for handling STL file visualization and VR interaction.
+ *
+ * This file defines the main window UI logic for managing STL file loading, rendering using VTK, and VR rendering in a Qt application.
+ */
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ModelPart.h"
@@ -6,7 +12,7 @@
 #include "optiondialog.h"
 #include "VRRenderThread.h"
 
-// Q includes
+ // Qt includes
 #include <QFileDialog>
 #include <QMenu>
 #include <QMessageBox>
@@ -15,7 +21,7 @@
 #include <QFileInfoList>
 #include <QDebug>
 
-// VTK headers
+// VTK includes
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkRenderer.h>
 #include <vtkPolyDataMapper.h>
@@ -27,20 +33,26 @@
 #include <vtkNamedColors.h>
 #include <vtkCylinderSource.h>
 #include <vtkSTLReader.h>
-#include <vtkDataSetmapper.h>
+#include <vtkDataSetMapper.h>
 #include <vtkCallbackCommand.h>
 
+/**
+ * @brief Constructs the MainWindow and sets up UI components and signal connections.
+ * @param parent The parent widget.
+ */
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    // Signal-slot connections
     connect(ui->addButton, &QPushButton::released, this, &MainWindow::handleButton);
     connect(ui->openOptions, &QPushButton::released, this, &MainWindow::handleOpenOptions);
     connect(this, &MainWindow::statusUpdateMessageSignal, ui->statusbar, &QStatusBar::showMessage);
     connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::handleStartVR);
+    connect(ui->stopVRButton, &QPushButton::clicked, this, &MainWindow::handleStopVR);
 
+    // Tree view setup
     this->partList = new ModelPartList("PartsList");
     ui->treeView->setModel(this->partList);
     ui->treeView->addAction(ui->actionItemOptions);
@@ -48,110 +60,101 @@ MainWindow::MainWindow(QWidget* parent)
     connect(ui->treeView, &QTreeView::customContextMenuRequested, this, &MainWindow::showContextMenu);
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
+    // Menu actions
     connect(ui->actionOpenSingleFile, &QAction::triggered, this, &MainWindow::on_actionOpenSingleFile_triggered);
     connect(ui->actionClearTreeView, &QAction::triggered, this, &MainWindow::on_actionClearTreeView_triggered);
-
-    connect(ui->stopVRButton, &QPushButton::clicked, this, &MainWindow::handleStopVR);
-
 
     setupVTK();
 
     emit statusUpdateMessageSignal("Loaded Level0 parts (invisible)", 2000);
-
     vrThread = new VRRenderThread(this);
-
 }
 
-// Destructor - Stops the VrThread from running, incase it is active when program is being closed
+/**
+ * @brief Destructor. Ensures any running VR thread is safely stopped before closing.
+ */
 MainWindow::~MainWindow()
 {
     if (vrThread && vrThread->isRunning())
     {
         vrThread->issueCommand(VRRenderThread::END_RENDER, 0.0);
-        vrThread->wait(); //Wait for thread to safely exit
+        vrThread->wait();
     }
     delete vrThread;
     delete ui;
 }
 
+/**
+ * @brief Initializes the VTK rendering system.
+ */
 void MainWindow::setupVTK()
 {
     if (!ui->vtkWidget) {
-        // Sends a warning if the vtkWidget is missing from the ui_mainwindow file
         qWarning("vtkWidget is not initialized in the UI file!");
         return;
     }
-    // Creates an OpenGL window and connects it to the vtkWidget
+
     renderWindow = vtkSmartPointer<vtkGenericOpenGLRenderWindow>::New();
     ui->vtkWidget->setRenderWindow(renderWindow);
-    // Creates a new renderer, which draws the 3d scene, ands the renderer renderwindow
+
     renderer = vtkSmartPointer<vtkRenderer>::New();
     renderWindow->AddRenderer(renderer);
-    // Sets background colour to grey
     renderer->SetBackground(0.1, 0.1, 0.1);
-    // Triggers initial render 
+
     renderWindow->Render();
 }
 
+/**
+ * @brief Updates the status bar with a given message.
+ * @param message Message to show.
+ * @param timeout Duration in milliseconds.
+ */
 void MainWindow::statusUpdateMessage(const QString& message, int timeout)
 {
     ui->statusbar->showMessage(message, timeout);
 }
 
-// This button does nothing, was just for week 2 sign off
+/**
+ * @brief Simple test button handler.
+ */
 void MainWindow::handleButton()
 {
-    QMessageBox msgBox;
-    msgBox.setText("Add button was clicked");
-    msgBox.exec();
+    QMessageBox::information(this, "Test", "Add button was clicked");
     emit statusUpdateMessageSignal("Add button was clicked", 2000);
 }
 
+/**
+ * @brief Opens the option dialog for the currently selected tree item.
+ */
 void MainWindow::on_actionItemOptions_triggered()
 {
-    // Get the currently selected item in the tree view, attaches a pointer to a ModelPart, which represents the stl Model
     QModelIndex index = ui->treeView->currentIndex();
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
 
-    // If no item is selected, show a warning message and exit
     if (!selectedPart) {
         QMessageBox::warning(this, "No Selection", "Please select an item first.");
         return;
     }
 
-    // Create and initialize the option dialog
     OptionDialog optionDialog(this);
     QColor currentColor(selectedPart->getColourR(), selectedPart->getColourG(), selectedPart->getColourB());
     optionDialog.setValues(selectedPart->data(0).toString(), currentColor, selectedPart->visible());
 
-    // If the user clicks "OK" in the dialog
     if (optionDialog.exec() == QDialog::Accepted) {
-        // Update the model part's name using the dialog's new name
         selectedPart->setData(0, optionDialog.getName());
-
-        // Get the chosen color from the dialog and update the model part
         QColor chosenColor = optionDialog.getColor();
         selectedPart->setColour(chosenColor.red(), chosenColor.green(), chosenColor.blue());
-
-        // If the VR thread is running, update the corresponding VTK actor color
-        if (vrThread && vrThread->isRunning()) {
-            vtkActor* actor = selectedPart->getActor();
-        }
-
-        // Update the visibility of the model part
         selectedPart->setVisible(optionDialog.isVisible());
 
-        // Notify the model/view that the data for this index has changed
         partList->dataChanged(index, index);
-
-        // Trigger a render update in the viewer
         updateRender();
-
-        // Emit a signal to display a status message for 2 seconds
         emit statusUpdateMessageSignal("Updated item options", 2000);
     }
 }
-// Button that opens option dialog for testing
+
+/**
+ * @brief Opens option dialog manually for testing.
+ */
 void MainWindow::handleOpenOptions()
 {
     OptionDialog optionDialog(this);
@@ -159,7 +162,9 @@ void MainWindow::handleOpenOptions()
     emit statusUpdateMessageSignal("Open Options button was clicked", 2000);
 }
 
-// Handel when tree view is clicked and emits a message
+/**
+ * @brief Handles clicks in the tree view and displays selected item.
+ */
 void MainWindow::handleTreeClicked()
 {
     QModelIndex index = ui->treeView->currentIndex();
@@ -170,49 +175,57 @@ void MainWindow::handleTreeClicked()
         emit statusUpdateMessageSignal("Selected item: " + text, 2000);
     }
 }
-// This is the handling of the OpenFile Button, however it actually opens a repositry
+
+/**
+ * @brief Opens a folder and loads all STL parts recursively.
+ */
 void MainWindow::on_actionOpenFile_triggered()
 {
-    QString folderPath = QFileDialog::getExistingDirectory(this, "Select Repositry Folder", QDir::homePath());
+    QString folderPath = QFileDialog::getExistingDirectory(this, "Select Repository Folder", QDir::homePath());
 
     if (!folderPath.isEmpty()) {
         partList->clear();
         renderer->RemoveAllViewProps();
-
         loadInitialPartsFromFolder(folderPath);
-
     }
 }
 
-// Handles the selection of a part when the user right clicks on a stlfile allowing them to open option dialog
+/**
+ * @brief Shows a context menu when user right-clicks in the tree view.
+ */
 void MainWindow::showContextMenu(const QPoint& pos)
 {
     QModelIndex index = ui->treeView->indexAt(pos);
     if (!index.isValid()) return;
 
-    ui->treeView->setCurrentIndex(index); // Make sure context menu affects selected part
+    ui->treeView->setCurrentIndex(index);
     QMenu contextMenu(this);
     contextMenu.addAction(ui->actionItemOptions);
     contextMenu.exec(ui->treeView->viewport()->mapToGlobal(pos));
 }
 
-void MainWindow::updateRender() {
-    // Clears all existing actors
+/**
+ * @brief Updates the VTK scene with visible actors from the model tree.
+ */
+void MainWindow::updateRender()
+{
     renderer->RemoveAllViewProps();
-    // Recursively add each isible actor from the tree
+
     int topLevelCount = partList->rowCount(QModelIndex());
     for (int i = 0; i < topLevelCount; ++i) {
         QModelIndex topIndex = partList->index(i, 0, QModelIndex());
         updateRenderFromTree(topIndex);
     }
 
-    if (renderer->GetActors()->GetNumberOfItems() > 0) {
+    if (renderer->GetActors()->GetNumberOfItems() > 0)
         renderer->ResetCamera();
-    }
 
     renderWindow->Render();
 }
-// Recursively moves through the model tree and adds visible parts to the renderer
+
+/**
+ * @brief Recursively adds visible actors to the renderer.
+ */
 void MainWindow::updateRenderFromTree(const QModelIndex& index)
 {
     if (!index.isValid()) return;
@@ -221,10 +234,7 @@ void MainWindow::updateRenderFromTree(const QModelIndex& index)
 
     if (selectedPart && selectedPart->visible()) {
         vtkSmartPointer<vtkActor> actor = selectedPart->getActor();
-
-        if (actor) {
-            renderer->AddActor(actor);
-        }
+        if (actor) renderer->AddActor(actor);
     }
 
     int rows = partList->rowCount(index);
@@ -233,7 +243,10 @@ void MainWindow::updateRenderFromTree(const QModelIndex& index)
     }
 }
 
-// Loads model parts from a specified folder and its subfolders, then updates the render view
+/**
+ * @brief Loads STL parts from the specified directory.
+ * @param folderPath Path to the folder.
+ */
 void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
 {
     QDir dir(folderPath);
@@ -246,82 +259,59 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
     updateRender();
 }
 
-void MainWindow::startVRRendering() {
-
-    // loop through tree and add actors using add actor offline
-
-    if (vrThread && !vrThread->isRunning()) {
-        vrThread->start();
-        emit statusUpdateMessageSignal("VR thread started", 2000);
+/**
+ * @brief Starts the VR rendering thread and sends actors.
+ */
+void MainWindow::handleStartVR()
+{
+    if (vrThread && vrThread->isRunning()) {
+        QMessageBox::information(this, "VR", "VR is already running.");
+        return;
     }
-    else {
-        emit statusUpdateMessageSignal("VR thread is already running", 2000);
-    }
+
+    if (vrThread) vrThread->deleteLater();
+    vrThread = new VRRenderThread();
+
+    addVisiblePartsToVR(vrThread);
+    vrThread->start();
+
+    emit sendActors(renderer->GetActors());
+    emit statusUpdateMessageSignal("VR started", 2000);
 }
 
-// Recursively loads all STL files and subfolders from a given directory into the model tree.
+/**
+ * @brief Recursively loads STL parts from a directory and adds to model tree.
+ * @param dir Directory to scan.
+ * @param parentItem Parent tree item.
+ */
 void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
 {
-    QStringList filters;
-    filters << "*.stl" << "*.STL";
+    QStringList filters = { "*.stl", "*.STL" };
 
-    // Load STL files in this directory
     QFileInfoList fileList = dir.entryInfoList(filters, QDir::Files);
     for (const QFileInfo& fileInfo : fileList) {
         QString filePath = fileInfo.absoluteFilePath();
         ModelPart* part = new ModelPart({ fileInfo.fileName(), 0 }, parentItem);
         parentItem->appendChild(part);
-
         part->loadSTL(filePath);
-
-        part->setVisible(false);  // Default invisible
-
-        qDebug() << "Loaded" << filePath << "and set to invisible.";
+        part->setVisible(false);
     }
 
-    // Now handle subdirectories
     QFileInfoList dirList = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
     for (const QFileInfo& subdirInfo : dirList) {
-        QString subdirPath = subdirInfo.absoluteFilePath();
-        QDir subdir(subdirPath);
-
-        // Create a ModelPart to represent the folder
+        QDir subdir(subdirInfo.absoluteFilePath());
         ModelPart* folderItem = new ModelPart({ subdirInfo.fileName(), 0 }, parentItem);
         parentItem->appendChild(folderItem);
-
-        qDebug() << "Created folder node:" << subdirPath;
-
-        // Recursively load parts from the subfolder
         loadPartsRecursively(subdir, folderItem);
     }
-
 }
 
-void MainWindow::handleStartVR() {
-    if (vrThread && vrThread->isRunning()) {
-
-        QMessageBox::information(this, "VR", "VR is already running.");
-            return;
-    }
-
-    if (vrThread) {
-        vrThread->deleteLater(); // deletion of previous thread
-    }
-
-    vrThread = new VRRenderThread();
-
-    addVisiblePartsToVR(vrThread);
-
-    vrThread->start();
-
-    qDebug() << "Emitting sendActors with" << renderer->GetActors()->GetNumberOfItems() << "actors";
-    emit sendActors(renderer->GetActors());
-
-
-    emit statusUpdateMessageSignal("VR started", 2000);
-    }
-
-void MainWindow::addVisiblePartsToVR(VRRenderThread* thread) {
+/**
+ * @brief Collects visible parts and passes them to the VR thread.
+ * @param thread VR render thread instance.
+ */
+void MainWindow::addVisiblePartsToVR(VRRenderThread* thread)
+{
     int topLevelCount = partList->rowCount(QModelIndex());
     for (int i = 0; i < topLevelCount; ++i) {
         QModelIndex topIndex = partList->index(i, 0, QModelIndex());
@@ -329,67 +319,61 @@ void MainWindow::addVisiblePartsToVR(VRRenderThread* thread) {
     }
 }
 
-void MainWindow ::addPartsFromTree(const QModelIndex& index, VRRenderThread* thread){
-
+/**
+ * @brief Adds individual part actor to the VR thread.
+ * @param index Model index of the part.
+ * @param thread VR render thread.
+ */
+void MainWindow::addPartsFromTree(const QModelIndex& index, VRRenderThread* thread)
+{
     ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
     if (selectedPart->visible()) {
         vtkSmartPointer<vtkActor> actor = selectedPart->getNewActor();
-        if (actor) {
-            thread->addActorOffline(actor);
-        }
+        if (actor) thread->addActorOffline(actor);
     }
+
     int rows = partList->rowCount(index);
     for (int i = 0; i < rows; i++) {
         addPartsFromTree(partList->index(i, 0, index), thread);
     }
 }
 
+/**
+ * @brief Loads a single STL file and displays it.
+ */
 void MainWindow::on_actionOpenSingleFile_triggered()
 {
-    QString filePath = QFileDialog::getOpenFileName(
-        this,
-        "Open STL File",
-        QDir::homePath(),
-        "STL Files (*.stl *.STL)");
-
-    if (filePath.isEmpty())
-        return;
+    QString filePath = QFileDialog::getOpenFileName(this, "Open STL File", QDir::homePath(), "STL Files (*.stl *.STL)");
+    if (filePath.isEmpty()) return;
 
     QFileInfo fileInfo(filePath);
     partList->addPart(fileInfo.fileName(), filePath);
-
     updateRender();
     emit statusUpdateMessageSignal("Loaded single file: " + fileInfo.fileName(), 2000);
-    qDebug() << "Loaded single file:" << filePath;
 }
 
+/**
+ * @brief Clears the model tree and the render view.
+ */
 void MainWindow::on_actionClearTreeView_triggered()
 {
-    // Clear the model (removes all ModelPart entries)
     partList->clear();
-
-    // Clear all VTK actors from the renderer
     renderer->RemoveAllViewProps();
-
-    // Trigger a render update to reflect the empty scene
     renderWindow->Render();
-
-    // Optionally show a status bar message
     emit statusUpdateMessageSignal("Tree view and VTK scene cleared", 2000);
-
-    // Optional debug
-    qDebug() << "Cleared tree view and VTK scene.";
 }
 
-void MainWindow::handleStopVR() {
+/**
+ * @brief Safely stops the VR thread.
+ */
+void MainWindow::handleStopVR()
+{
     if (vrThread && vrThread->isRunning()) {
-        vrThread->issueCommand(VRRenderThread::END_RENDER, 0.0); // assuming END_RENDER properly stops rendering
-        vrThread->wait(); // Wait until the thread has stopped
+        vrThread->issueCommand(VRRenderThread::END_RENDER, 0.0);
+        vrThread->wait();
         emit statusUpdateMessageSignal("VR thread stopped", 2000);
-        qDebug() << "VR thread stopped safely.";
     }
     else {
         emit statusUpdateMessageSignal("VR thread was not running", 2000);
-        qDebug() << "No VR thread running to stop.";
     }
 }
