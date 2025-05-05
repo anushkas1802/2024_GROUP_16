@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: MainWindow Class Reference</title>
+<title>VR Super Base-Station: MainWindow Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,9 +31,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Application for 3D rendering on the VR and the Computer Base-Station</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -109,6 +111,11 @@ $(function(){initNavTree('class_main_window.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">MainWindow Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> class.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainWindow:</div>
 <div class="dyncontent">
@@ -118,27 +125,167 @@ Inheritance diagram for MainWindow:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a84941c4d4f908c10cee89e0264654c91" id="r_a84941c4d4f908c10cee89e0264654c91"><td class="memItemLeft" align="right" valign="top"><a id="a84941c4d4f908c10cee89e0264654c91" name="a84941c4d4f908c10cee89e0264654c91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>statusUpdateMessageSignal</b> (const QString &amp;message, int timeout)</td></tr>
+<tr class="memitem:a84941c4d4f908c10cee89e0264654c91" id="r_a84941c4d4f908c10cee89e0264654c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84941c4d4f908c10cee89e0264654c91">statusUpdateMessageSignal</a> (const QString &amp;message, int timeout)</td></tr>
+<tr class="memdesc:a84941c4d4f908c10cee89e0264654c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to update the status bar with a message.  <br /></td></tr>
 <tr class="separator:a84941c4d4f908c10cee89e0264654c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af402adfae27c408a41f0b6ae50351957" id="r_af402adfae27c408a41f0b6ae50351957"><td class="memItemLeft" align="right" valign="top"><a id="af402adfae27c408a41f0b6ae50351957" name="af402adfae27c408a41f0b6ae50351957"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sendActors</b> (vtkActorCollection *actors)</td></tr>
+<tr class="memitem:af402adfae27c408a41f0b6ae50351957" id="r_af402adfae27c408a41f0b6ae50351957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af402adfae27c408a41f0b6ae50351957">sendActors</a> (vtkActorCollection *actors)</td></tr>
+<tr class="memdesc:af402adfae27c408a41f0b6ae50351957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to send the collection of actors to another component (e.g., VR thread).  <br /></td></tr>
 <tr class="separator:af402adfae27c408a41f0b6ae50351957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a996c5a2b6f77944776856f08ec30858d" id="r_a996c5a2b6f77944776856f08ec30858d"><td class="memItemLeft" align="right" valign="top"><a id="a996c5a2b6f77944776856f08ec30858d" name="a996c5a2b6f77944776856f08ec30858d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> (QWidget *parent=nullptr)</td></tr>
+<tr class="memitem:a996c5a2b6f77944776856f08ec30858d" id="r_a996c5a2b6f77944776856f08ec30858d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a996c5a2b6f77944776856f08ec30858d">MainWindow</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a996c5a2b6f77944776856f08ec30858d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> constructor.  <br /></td></tr>
 <tr class="separator:a996c5a2b6f77944776856f08ec30858d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7" id="r_ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top"><a id="ae98d00a93bc118200eeef9f9bba1dba7" name="ae98d00a93bc118200eeef9f9bba1dba7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~MainWindow</b> ()</td></tr>
-<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Stops the VR thread if it is running and cleans up resources. <br /></td></tr>
+<tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7" id="r_ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
+<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> destructor.  <br /></td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
-<li><b>mainwindow.cpp</b></li>
-</ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> class. </p>
+<p>This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="mainwindow_8h_source.html#l00038">38</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a996c5a2b6f77944776856f08ec30858d" name="a996c5a2b6f77944776856f08ec30858d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996c5a2b6f77944776856f08ec30858d">&#9670;&#160;</a></span>MainWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainWindow::MainWindow </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> constructor. </p>
+<p>Constructs the <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> and sets up UI components and signal connections.</p>
+<p>Constructs the main window. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>The parent widget, defaults to nullptr.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This constructor initializes the main window, sets up the user interface using the provided <code>ui</code> object, establishes signal-slot connections for various UI elements, initializes the model part list and tree view, sets up the VTK rendering environment, and potentially starts the VR rendering thread.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>The parent widget for this main window, typically <code>nullptr</code> for the top-level window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00049">49</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae98d00a93bc118200eeef9f9bba1dba7" name="ae98d00a93bc118200eeef9f9bba1dba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae98d00a93bc118200eeef9f9bba1dba7">&#9670;&#160;</a></span>~MainWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainWindow::~MainWindow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> destructor. </p>
+<p>Destructor.</p>
+<p>Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread.</p>
+<p>Stops the VR thread if it is running and cleans up resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00086">86</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af402adfae27c408a41f0b6ae50351957" name="af402adfae27c408a41f0b6ae50351957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af402adfae27c408a41f0b6ae50351957">&#9670;&#160;</a></span>sendActors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::sendActors </td>
+          <td>(</td>
+          <td class="paramtype">vtkActorCollection *</td>          <td class="paramname"><span class="paramname"><em>actors</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal to send the collection of actors to another component (e.g., VR thread). </p>
+<p>This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actors</td><td>The collection of VTK actors. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a84941c4d4f908c10cee89e0264654c91" name="a84941c4d4f908c10cee89e0264654c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84941c4d4f908c10cee89e0264654c91">&#9670;&#160;</a></span>statusUpdateMessageSignal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::statusUpdateMessageSignal </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signal to update the status bar with a message. </p>
+<p>This signal is emitted when a status update is needed in the main window's status bar. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to display. </td></tr>
+    <tr><td class="paramname">timeout</td><td>The duration (in milliseconds) to display the message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

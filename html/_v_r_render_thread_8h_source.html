@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: VRRenderThread.h Source File</title>
+<title>VR Super Base-Station: VRRenderThread.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,9 +31,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Application for 3D rendering on the VR and the Computer Base-Station</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -106,94 +108,84 @@ $(function(){initNavTree('_v_r_render_thread_8h_source.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <a href="_v_r_render_thread_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef VR_RENDER_THREAD_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define VR_RENDER_THREAD_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef VR_RENDER_THREAD_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define VR_RENDER_THREAD_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> <span class="comment">/* Project headers */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="comment">/* Project headers */</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="comment">/* Qt headers */</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QThread&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;QMutex&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;QWaitCondition&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* Vtk headers */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;vtkActor.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;vtkOpenVRRenderWindow.h&gt;</span>              </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;vtkOpenVRRenderWindowInteractor.h&gt;</span>    </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;vtkOpenVRRenderer.h&gt;</span>                  </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;vtkOpenVRCamera.h&gt;</span>    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;vtkActorCollection.h&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;vtkCommand.h&gt;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/* Note that this class inherits from the Qt class QThread which allows it to be a parallel thread</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * to the main() thread, and also from vtkCommand which allows it to act as a &quot;callback&quot; for the</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * vtkRenderWindowInteractor. This callback functionallity means that once the renderWindowInteractor</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * takes control of this thread to enable VR, it can callback to a function in the class to check to see</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * if the user has requested any changes</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html">   36</a></span><span class="keyword">class </span><a class="code hl_function" href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread</a> : <span class="keyword">public</span> QThread {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Q_OBJECT</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        END_RENDER,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        ROTATE_X,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        ROTATE_Y,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        ROTATE_Z</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#ae6937f678d9d29601b42abb1a2ea1427">   46</a></span>    } <a class="code hl_variable" href="class_v_r_render_thread.html#ae6937f678d9d29601b42abb1a2ea1427">Command</a>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread</a>(QObject* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="class_v_r_render_thread.html#a21c23037bf11cd2a1592076c7e499de0">~VRRenderThread</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#a17bb943e3b852339398cfbb7cb12cf13">addActorOffline</a>(vtkActor* actor);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> <span class="comment">/* Qt headers */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;QThread&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;QMutex&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QWaitCondition&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* Vtk headers */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vtkActor.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vtkOpenVRRenderWindow.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;vtkOpenVRRenderWindowInteractor.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;vtkOpenVRRenderer.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;vtkOpenVRCamera.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;vtkActorCollection.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;vtkCommand.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span><a class="code hl_class" href="class_v_r_render_thread.html">VRRenderThread</a> : <span class="keyword">public</span> QThread {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Q_OBJECT</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2">END_RENDER</a>,     </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f">ROTATE_X</a>,       </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999">ROTATE_Y</a>,       </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980">ROTATE_Z</a>        </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#ae6937f678d9d29601b42abb1a2ea1427">   45</a></span>    } <a class="code hl_enumeration" href="class_v_r_render_thread.html#ae54e55debf52a3afee10238942ef5669">Command</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">   54</a></span>    <a class="code hl_function" href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread</a>(QObject* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#a21c23037bf11cd2a1592076c7e499de0">   61</a></span>    <a class="code hl_function" href="class_v_r_render_thread.html#a21c23037bf11cd2a1592076c7e499de0">~VRRenderThread</a>();</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#abbc905472309a2da473241a596e43813">issueCommand</a>(<span class="keywordtype">int</span> cmd, <span class="keywordtype">double</span> value);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#af5bbbaf8625fc42278476a43bf018661">run</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">/* Standard VTK VR Classes */</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindow&gt;              window;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindowInteractor&gt;    interactor;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    vtkSmartPointer&lt;vtkOpenVRRenderer&gt;                  renderer;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    vtkSmartPointer&lt;vtkOpenVRCamera&gt;                    camera;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">/* Use to synchronise passing of data to VR thread */</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    QMutex                                              mutex;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    QWaitCondition                                      condition;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    vtkSmartPointer&lt;vtkActorCollection&gt;                 actors;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    std::chrono::time_point&lt;std::chrono::steady_clock&gt;  t_last;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">bool</span>                                                endRender;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">/* Some variables to indicate animation actions to apply.</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">double</span> rotateX;         <span class="comment">/*&lt; Degrees to rotate around X axis (per time-step) */</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">double</span> rotateY;         <span class="comment">/*&lt; Degrees to rotate around Y axis (per time-step) */</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span> rotateZ;         <span class="comment">/*&lt; Degrees to rotate around Z axis (per time-step) */</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
-</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_a17bb943e3b852339398cfbb7cb12cf13"><div class="ttname"><a href="class_v_r_render_thread.html#a17bb943e3b852339398cfbb7cb12cf13">VRRenderThread::addActorOffline</a></div><div class="ttdeci">void addActorOffline(vtkActor *actor)</div><div class="ttdef"><b>Definition</b> VRRenderThread.cpp:57</div></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_a21c23037bf11cd2a1592076c7e499de0"><div class="ttname"><a href="class_v_r_render_thread.html#a21c23037bf11cd2a1592076c7e499de0">VRRenderThread::~VRRenderThread</a></div><div class="ttdeci">~VRRenderThread()</div><div class="ttdef"><b>Definition</b> VRRenderThread.cpp:52</div></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_a35976e55f6655840aa217aa8a066f196"><div class="ttname"><a href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread::VRRenderThread</a></div><div class="ttdeci">VRRenderThread(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition</b> VRRenderThread.cpp:36</div></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_abbc905472309a2da473241a596e43813"><div class="ttname"><a href="class_v_r_render_thread.html#abbc905472309a2da473241a596e43813">VRRenderThread::issueCommand</a></div><div class="ttdeci">void issueCommand(int cmd, double value)</div><div class="ttdef"><b>Definition</b> VRRenderThread.cpp:75</div></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_ae6937f678d9d29601b42abb1a2ea1427"><div class="ttname"><a href="class_v_r_render_thread.html#ae6937f678d9d29601b42abb1a2ea1427">VRRenderThread::Command</a></div><div class="ttdeci">enum VRRenderThread::@067224350267176015307021323122021326220104162372 Command</div></div>
-<div class="ttc" id="aclass_v_r_render_thread_html_af5bbbaf8625fc42278476a43bf018661"><div class="ttname"><a href="class_v_r_render_thread.html#af5bbbaf8625fc42278476a43bf018661">VRRenderThread::run</a></div><div class="ttdeci">void run() override</div><div class="ttdef"><b>Definition</b> VRRenderThread.cpp:102</div></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#a17bb943e3b852339398cfbb7cb12cf13">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#a17bb943e3b852339398cfbb7cb12cf13">addActorOffline</a>(vtkActor* actor);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#abbc905472309a2da473241a596e43813">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#abbc905472309a2da473241a596e43813">issueCommand</a>(<span class="keywordtype">int</span> cmd, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_v_r_render_thread.html#af5bbbaf8625fc42278476a43bf018661">   93</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_v_r_render_thread.html#af5bbbaf8625fc42278476a43bf018661">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">/* Standard VTK VR Classes */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindow&gt;         window;     </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    vtkSmartPointer&lt;vtkOpenVRRenderWindowInteractor&gt; interactor; </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    vtkSmartPointer&lt;vtkOpenVRRenderer&gt;             renderer;   </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    vtkSmartPointer&lt;vtkOpenVRCamera&gt;               camera;     </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">/* Use to synchronise passing of data to VR thread */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    QMutex                                          mutex;      </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    QWaitCondition                                  condition;  </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    vtkSmartPointer&lt;vtkActorCollection&gt;             actors;     </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::chrono::time_point&lt;std::chrono::steady_clock&gt; t_last;    </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">bool</span>                                            endRender;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">/* Some variables to indicate animation actions to apply.</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordtype">double</span> rotateX;     </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">double</span> rotateY;     </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">double</span> rotateZ;     </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>};</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#endif </span><span class="comment">// VR_RENDER_THREAD_H</span></div>
+<div class="ttc" id="aclass_v_r_render_thread_html"><div class="ttname"><a href="class_v_r_render_thread.html">VRRenderThread</a></div><div class="ttdoc">This class inherits from the Qt class QThread which allows it to be a parallel thread to the main() t...</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00025">VRRenderThread.cpp:26</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a17bb943e3b852339398cfbb7cb12cf13"><div class="ttname"><a href="class_v_r_render_thread.html#a17bb943e3b852339398cfbb7cb12cf13">VRRenderThread::addActorOffline</a></div><div class="ttdeci">void addActorOffline(vtkActor *actor)</div><div class="ttdoc">Adds a VTK actor to the VR renderer before the VR interactor starts.</div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a21c23037bf11cd2a1592076c7e499de0"><div class="ttname"><a href="class_v_r_render_thread.html#a21c23037bf11cd2a1592076c7e499de0">VRRenderThread::~VRRenderThread</a></div><div class="ttdeci">~VRRenderThread()</div><div class="ttdoc">Destructor.</div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a35976e55f6655840aa217aa8a066f196"><div class="ttname"><a href="class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196">VRRenderThread::VRRenderThread</a></div><div class="ttdeci">VRRenderThread(QObject *parent=nullptr)</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f"><div class="ttname"><a href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f">VRRenderThread::ROTATE_X</a></div><div class="ttdeci">@ ROTATE_X</div><div class="ttdoc">Command to rotate around the X-axis.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00035">VRRenderThread.cpp:35</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980"><div class="ttname"><a href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980">VRRenderThread::ROTATE_Z</a></div><div class="ttdeci">@ ROTATE_Z</div><div class="ttdoc">Command to rotate around the Z-axis.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00037">VRRenderThread.cpp:37</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999"><div class="ttname"><a href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999">VRRenderThread::ROTATE_Y</a></div><div class="ttdeci">@ ROTATE_Y</div><div class="ttdoc">Command to rotate around the Y-axis.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00036">VRRenderThread.cpp:36</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2"><div class="ttname"><a href="class_v_r_render_thread.html#a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2">VRRenderThread::END_RENDER</a></div><div class="ttdeci">@ END_RENDER</div><div class="ttdoc">Command to end the rendering loop.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00034">VRRenderThread.cpp:34</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_abbc905472309a2da473241a596e43813"><div class="ttname"><a href="class_v_r_render_thread.html#abbc905472309a2da473241a596e43813">VRRenderThread::issueCommand</a></div><div class="ttdeci">void issueCommand(int cmd, double value)</div><div class="ttdoc">Issues a command to the VR thread in a thread-safe manner.</div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_ae54e55debf52a3afee10238942ef5669"><div class="ttname"><a href="class_v_r_render_thread.html#ae54e55debf52a3afee10238942ef5669">VRRenderThread::Command</a></div><div class="ttdeci">Command</div><div class="ttdoc">Command to signal the VR rendering loop to terminate.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_render_thread_8cpp_source.html#l00033">VRRenderThread.cpp:33</a></div></div>
+<div class="ttc" id="aclass_v_r_render_thread_html_af5bbbaf8625fc42278476a43bf018661"><div class="ttname"><a href="class_v_r_render_thread.html#af5bbbaf8625fc42278476a43bf018661">VRRenderThread::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">Re-implementation of the QThread::run() function.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

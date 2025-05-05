@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vrrenderthread_0',['VRRenderThread',['../class_v_r_render_thread.html#a35976e55f6655840aa217aa8a066f196',1,'VRRenderThread']]]
+  ['optiondialog_0',['OptionDialog',['../class_option_dialog.html#a4540736a5c6e4468dad5165c7aefc8bc',1,'OptionDialog']]]
 ];

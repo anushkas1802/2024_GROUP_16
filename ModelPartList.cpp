@@ -1,168 +1,190 @@
-;/**     @file ModelPartList.h
-  *
-  *     EEEE2076 - Software Engineering & VR Project
-  *
-  *     Template for model part list that will be used to create the trewview.
-  *
-  *     P Evans 2022
-  */
+/**
 
-#include "ModelPartList.h"
-#include "ModelPart.h"
+@file ModelPartList.h
 
-ModelPartList::ModelPartList( const QString& data, QObject* parent ) : QAbstractItemModel(parent) {
-    /* Have option to specify number of visible properties for each item in tree - the root item
-     * acts as the column headers
-     */
-    rootItem = new ModelPart( { tr("Part"), tr("Visible?") } );
-}
+@brief EEEE2076 - Software Engineering & VR Project
 
+Defines the ModelPartList class, which manages a hierarchical list of 3D model parts for display in a tree view.
 
+@author P Evans 2022
+*/
 
-ModelPartList::~ModelPartList() {
-    delete rootItem;
-}
+#ifndef VIEWER_MODELPARTLIST_H
+#define VIEWER_MODELPARTLIST_H
 
+#include "ModelPart.h" // Include the header for ModelPart class
 
-int ModelPartList::columnCount( const QModelIndex& parent ) const {
-    Q_UNUSED(parent);
+#include  // Base class for item models
+#include     // Represents an index in the model
+#include        // A class for variant data types
+#include         // A class for handling character strings
+#include           // A class for handling lists
 
-    return rootItem->columnCount();
-}
+class ModelPart; // Forward declaration of the ModelPart class
 
+/**
 
-QVariant ModelPartList::data( const QModelIndex& index, int role ) const {
-    /* If the item index isnt valid, return a new, empty QVariant (QVariant is generic datatype
-     * that could be any valid QT class) */
-    if( !index.isValid() )
-        return QVariant();
+@class ModelPartList
 
-    /* Role represents what this data will be used for, we only need deal with the case
-     * when QT is asking for data to create and display the treeview. Return a new,
-     * empty QVariant if any other request comes through. */
-    if (role != Qt::DisplayRole)
-        return QVariant();
+@brief The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.
 
-    /* Get a a pointer to the item referred to by the QModelIndex */
-    ModelPart* item = static_cast<ModelPart*>( index.internalPointer() );
+This class extends QAbstractItemModel to allow the display of a hierarchical list of ModelPart objects,
 
-    /* Each item in the tree has a number of columns ("Part" and "Visible" in this 
-     * initial example) return the column requested by the QModelIndex */
-    return item->data( index.column() );
-}
+typically in a QTreeView. It manages the data and structure of the model, including the root item,
 
+column information, and operations to add, remove, and access parts.
+*/
+class ModelPartList : public QAbstractItemModel {
+	Q_OBJECT   /**< A special Qt macro used to indicate that this class uses Qt's signals and slots. */
 
-Qt::ItemFlags ModelPartList::flags( const QModelIndex& index ) const {
-    if( !index.isValid() )
-        return Qt::NoItemFlags;
+public:
+	/**
+	* @brief Constructor for ModelPartList.
+	*
+	* Initializes the model with a root item that serves as the column headers.  The root item is created with
+	* the provided data string.
+	*
+	* @param data The data string used to initialize the root item (e.g., column headers).
+	* @param parent The parent object, used by the QAbstractItemModel constructor.  Defaults to nullptr.
+	/
+	ModelPartList(const QString& data, QObject parent = nullptr);
 
-    return QAbstractItemModel::flags( index );
-}
+	/**
+	 * @brief Adds a new model part to the list.
+	 *
+	 * Creates a new ModelPart object with the given name and file path, and adds it to the model.
+	 * The ModelPart is added as a child of the root item.  The STL file associated with the part is loaded,
+	 * and its initial visibility is set.
+	 *
+	 * @param name The name of the model part.
+	 * @param filePath The file path to the STL file of the model part.
+	 */
+	void addPart(const QString& name, const QString& filePath);
 
+	/**
+	 * @brief Destructor for ModelPartList.
+	 *
+	 * Deletes the root item to free allocated memory.  The destructor of the ModelPart class
+	 * recursively deletes all its child items, ensuring that all parts of the model are properly
+	 * deallocated.
+	 */
+	~ModelPartList();
 
-QVariant ModelPartList::headerData( int section, Qt::Orientation orientation, int role ) const {
-    if( orientation == Qt::Horizontal && role == Qt::DisplayRole )
-        return rootItem->data( section );
+	// Reimplementations of QAbstractItemModel virtual functions:
 
-    return QVariant();
-}
+	/**
+	 * @brief Returns the number of columns in the model.
+	 *
+	 * The number of columns is determined by the column count of the root item.  This is typically
+	 * 2 (Part Name, Visibility).
+	 *
+	 * @param parent The parent index (not used in this implementation).
+	 * @return The number of columns.
+	 */
+	int columnCount(const QModelIndex& parent) const override;
 
+	/**
+	 * @brief Returns the data for the item at the given index and role.
+	 *
+	 * This function retrieves the data to be displayed for a specific item in the model.
+	 * It only supports the Qt::DisplayRole, providing the name or visibility status of the ModelPart.
+	 *
+	 * @param index The index of the item for which data is requested.
+	 * @param role The role of the data being requested (e.g., Qt::DisplayRole, Qt::EditRole).
+	 * @return The data for the item, as a QVariant.
+	 */
+	QVariant data(const QModelIndex& index, int role) const override;
 
-QModelIndex ModelPartList::index(int row, int column, const QModelIndex& parent) const {
-    ModelPart* parentItem;
-    
-    if( !parent.isValid() || !hasIndex(row, column, parent) )
-        parentItem = rootItem;              // default to selecting root 
-    else
-        parentItem = static_cast<ModelPart*>(parent.internalPointer());
+	/**
+	 * @brief Returns the flags for the item at the given index.
+	 *
+	 * Determines how the item can be interacted with (e.g., selectable, editable).  The flags are
+	 * combined to indicate the supported interactions.
+	 *
+	 * @param index The index of the item.
+	 * @return The item flags.
+	 */
+	Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-    ModelPart* childItem = parentItem->child(row);
-    if( childItem )
-        return createIndex(row, column, childItem);
-    
-    
-    return QModelIndex();
-}
+	/**
+	 * @brief Returns the header data for the given section, orientation, and role.
+	 *
+	 * Provides the header labels for the columns of the model.  For horizontal headers, it returns
+	 * "Part" for the first column and "Visible?" for the second column.
+	 *
+	 * @param section The section number (column number for horizontal headers).
+	 * @param orientation The orientation of the header (Qt::Horizontal or Qt::Vertical).
+	 * @param role The role of the data being requested (e.g., Qt::DisplayRole).
+	 * @return The header data.
+	 */
+	QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
+	/**
+	 * @brief Returns the index for the item in the model given its row, column and parent.
+	 *
+	 * This method is used to create a QModelIndex for a specific item in the model.  The QModelIndex
+	 * is a lightweight pointer to an item in the model.
+	 *
+	 * @param row The row number of the item.
+	 * @param column The column number of the item.
+	 * @param parent The QModelIndex of the parent item.
+	 * @return The QModelIndex of the item at the given row and column with the specified parent.
+	 */
+	QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
 
-QModelIndex ModelPartList::parent( const QModelIndex& index ) const {
-    if (!index.isValid())
-        return QModelIndex();
+	/**
+	 * @brief Returns the parent index for the given index.
+	 *
+	 * This method returns the QModelIndex of the parent of the item at the given index.
+	 * If the item is a top-level item, it returns an invalid QModelIndex.
+	 *
+	 * @param index The index of the item for which the parent is requested.
+	 * @return The QModelIndex of the parent of the item at the given index.
+	 */
+	QModelIndex parent(const QModelIndex& index) const override;
 
-    ModelPart* childItem = static_cast<ModelPart*>(index.internalPointer());
-    ModelPart* parentItem = childItem->parentItem();
+	/**
+	 * @brief Returns the number of rows under the given parent.
+	 *
+	 * If the parent is invalid, it returns the number of top-level rows in the model.
+	 * Otherwise, it returns the number of children of the parent item.
+	 *
+	 * @param parent The QModelIndex of the parent item.
+	 * @return The number of rows under the given parent.
+	 */
+	int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
-    if( parentItem == rootItem )
-        return QModelIndex();
+	/**
+	 * @brief Sets the data for the item at the given index and role.
+	 *
+	 * This method sets the data associated with a specific item in the model.  It handles
+	 * changes to the visibility of a ModelPart.
+	 *
+	 * @param index The index of the item to set data for.
+	 * @param value The new data value.
+	 * @param role The role of the data to set (e.g., Qt::DisplayRole, Qt::EditRole).
+	 * @return true if the data was successfully set; otherwise false.
+	 */
+	bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
 
-    return createIndex( parentItem->row(), 0, parentItem );
-}
+private:
+	/**
+	* @brief The root item of the model.
+	*
+	* This is a pointer to the ModelPart object that serves as the root of the tree structure.
+	* It does not represent an actual model part, but rather holds the column headers and
+	* acts as the parent for the top-level model parts.
+	/
+	ModelPart rootItem;
 
+	 /**
+	  * @brief A list of ModelPart pointers.
+	  *
+	  * This list stores pointers to the ModelPart objects that are children of the root item.
+	  * It is used to keep track of the top-level model parts in the tree.
+	  */
 
-int ModelPartList::rowCount( const QModelIndex& parent ) const {
-    ModelPart* parentItem;
-    if( parent.column() > 0 )
-        return 0;
+	QList<ModelPart*> parts;
+};
 
-    if( !parent.isValid() )
-        parentItem = rootItem;
-    else
-        parentItem = static_cast<ModelPart*>(parent.internalPointer());
-
-    return parentItem->childCount();
-}
-
-
-ModelPart* ModelPartList::getRootItem() {
-    return rootItem; 
-}
-
-
-
-QModelIndex ModelPartList::appendChild(QModelIndex& parent, const QList<QVariant>& data) {      
-    ModelPart* parentPart;
-
-    if (parent.isValid())
-        parentPart = static_cast<ModelPart*>(parent.internalPointer());
-    else {
-        parentPart = rootItem;
-        parent = createIndex(0, 0, rootItem );
-    }
-
-    beginInsertRows( parent, rowCount(parent), rowCount(parent) ); 
-
-    ModelPart* childPart = new ModelPart( data, parentPart );
-
-    parentPart->appendChild(childPart);
-
-    QModelIndex child = createIndex(0, 0, childPart);
-
-    endInsertRows();
-
-    emit layoutChanged();
-
-    return child;
-}
-
-void ModelPartList::clear()
-{
-    beginResetModel(); // Notify Qt that we're about to reset the model
-
-    rootItem->removeAllChildren(); // Ensure rootItem supports this function
-
-    endResetModel(); // Notify Qt that the model has been reset
-}
-
-void ModelPartList::addPart(const QString& name, const QString& filePath)
-{
-    int row = rootItem->childCount();
-    beginInsertRows(QModelIndex(), row, row);
-
-    ModelPart* part = new ModelPart({ name, 0 }, rootItem);
-    rootItem->appendChild(part);
-
-    endInsertRows();
-
-    part->loadSTL(filePath);
-    part->setVisible(false);
-}
+#endif // VIEWER_MODELPARTLIST_H

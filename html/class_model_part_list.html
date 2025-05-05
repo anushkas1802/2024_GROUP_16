@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: ModelPartList Class Reference</title>
+<title>VR Super Base-Station: ModelPartList Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,9 +31,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Application for 3D rendering on the VR and the Computer Base-Station</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,6 +110,11 @@ $(function(){initNavTree('class_model_part_list.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">ModelPartList Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a> class provides a model to represent a list of 3D model parts in a tree structure.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_model_part_list_8h_source.html">ModelPartList.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ModelPartList:</div>
 <div class="dyncontent">
@@ -117,37 +124,101 @@ Inheritance diagram for ModelPartList:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a039afc4b526b377bd346e8ea5b2d027d" id="r_a039afc4b526b377bd346e8ea5b2d027d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a039afc4b526b377bd346e8ea5b2d027d">ModelPartList</a> (const QString &amp;<a class="el" href="#a60923d947a2eafb5dfabe1cf8461807e">data</a>, QObject *<a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a>=NULL)</td></tr>
-<tr class="separator:a039afc4b526b377bd346e8ea5b2d027d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5be99543fc05f19164a16ff56274744" id="r_ac5be99543fc05f19164a16ff56274744"><td class="memItemLeft" align="right" valign="top"><a id="ac5be99543fc05f19164a16ff56274744" name="ac5be99543fc05f19164a16ff56274744"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addPart</b> (const QString &amp;name, const QString &amp;filePath)</td></tr>
+<tr class="memitem:ac5be99543fc05f19164a16ff56274744" id="r_ac5be99543fc05f19164a16ff56274744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5be99543fc05f19164a16ff56274744">addPart</a> (const QString &amp;name, const QString &amp;filePath)</td></tr>
+<tr class="memdesc:ac5be99543fc05f19164a16ff56274744"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; A special Qt macro used to indicate that this class uses Qt's signals and slots.  <br /></td></tr>
 <tr class="separator:ac5be99543fc05f19164a16ff56274744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c45a4e506f201c312f65a4c94ab4650" id="r_a9c45a4e506f201c312f65a4c94ab4650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c45a4e506f201c312f65a4c94ab4650">~ModelPartList</a> ()</td></tr>
+<tr class="memdesc:a9c45a4e506f201c312f65a4c94ab4650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a>.  <br /></td></tr>
 <tr class="separator:a9c45a4e506f201c312f65a4c94ab4650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a515c7a177324fc1fb83474fcff835662" id="r_a515c7a177324fc1fb83474fcff835662"><td class="memItemLeft" align="right" valign="top"><a id="a515c7a177324fc1fb83474fcff835662" name="a515c7a177324fc1fb83474fcff835662"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:ae0af4bc07e14140f65e1db531257c94d" id="r_ae0af4bc07e14140f65e1db531257c94d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0af4bc07e14140f65e1db531257c94d">columnCount</a> (const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>) const override</td></tr>
+<tr class="memdesc:ae0af4bc07e14140f65e1db531257c94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of columns in the model.  <br /></td></tr>
+<tr class="separator:ae0af4bc07e14140f65e1db531257c94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ef0e03a214d3440d1ce86e5c64ba32" id="r_a59ef0e03a214d3440d1ce86e5c64ba32"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59ef0e03a214d3440d1ce86e5c64ba32">data</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>, int role) const override</td></tr>
+<tr class="memdesc:a59ef0e03a214d3440d1ce86e5c64ba32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data for the item at the given index and role.  <br /></td></tr>
+<tr class="separator:a59ef0e03a214d3440d1ce86e5c64ba32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded47caa71080090631c021c21bf4e6d" id="r_aded47caa71080090631c021c21bf4e6d"><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded47caa71080090631c021c21bf4e6d">flags</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>) const override</td></tr>
+<tr class="memdesc:aded47caa71080090631c021c21bf4e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the flags for the item at the given index.  <br /></td></tr>
+<tr class="separator:aded47caa71080090631c021c21bf4e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a433d50449a83c42eb8c0384c7b7c0fea" id="r_a433d50449a83c42eb8c0384c7b7c0fea"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a433d50449a83c42eb8c0384c7b7c0fea">headerData</a> (int section, Qt::Orientation orientation, int role) const override</td></tr>
+<tr class="memdesc:a433d50449a83c42eb8c0384c7b7c0fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the header data for the given section, orientation, and role.  <br /></td></tr>
+<tr class="separator:a433d50449a83c42eb8c0384c7b7c0fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d3309449f228eaed85a332a725be15" id="r_a36d3309449f228eaed85a332a725be15"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a> (int row, int column, const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>=QModelIndex()) const override</td></tr>
+<tr class="memdesc:a36d3309449f228eaed85a332a725be15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index for the item in the model given its row, column and parent.  <br /></td></tr>
+<tr class="separator:a36d3309449f228eaed85a332a725be15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95162d13f90586be9b645f02cc4694f4" id="r_a95162d13f90586be9b645f02cc4694f4"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>) const override</td></tr>
+<tr class="memdesc:a95162d13f90586be9b645f02cc4694f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parent index for the given index.  <br /></td></tr>
+<tr class="separator:a95162d13f90586be9b645f02cc4694f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a789e0f0faac195b26e33d6d26ee37007" id="r_a789e0f0faac195b26e33d6d26ee37007"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a789e0f0faac195b26e33d6d26ee37007">rowCount</a> (const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>=QModelIndex()) const override</td></tr>
+<tr class="memdesc:a789e0f0faac195b26e33d6d26ee37007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of rows under the given parent.  <br /></td></tr>
+<tr class="separator:a789e0f0faac195b26e33d6d26ee37007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae46ca3f30caafbbb7125f04860625243" id="r_ae46ca3f30caafbbb7125f04860625243"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae46ca3f30caafbbb7125f04860625243">setData</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>, const QVariant &amp;value, int role=Qt::EditRole) override</td></tr>
+<tr class="memdesc:ae46ca3f30caafbbb7125f04860625243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data for the item at the given index and role.  <br /></td></tr>
+<tr class="separator:ae46ca3f30caafbbb7125f04860625243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a039afc4b526b377bd346e8ea5b2d027d" id="r_a039afc4b526b377bd346e8ea5b2d027d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a039afc4b526b377bd346e8ea5b2d027d">ModelPartList</a> (const QString &amp;<a class="el" href="#a59ef0e03a214d3440d1ce86e5c64ba32">data</a>, QObject *<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>=NULL)</td></tr>
+<tr class="memdesc:a039afc4b526b377bd346e8ea5b2d027d"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; A special Qt tag used to indicate that this is a special Qt class that might require preprocessing before compiling.  <br /></td></tr>
+<tr class="separator:a039afc4b526b377bd346e8ea5b2d027d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5be99543fc05f19164a16ff56274744" id="r_ac5be99543fc05f19164a16ff56274744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5be99543fc05f19164a16ff56274744">addPart</a> (const QString &amp;name, const QString &amp;filePath)</td></tr>
+<tr class="separator:ac5be99543fc05f19164a16ff56274744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c45a4e506f201c312f65a4c94ab4650" id="r_a9c45a4e506f201c312f65a4c94ab4650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c45a4e506f201c312f65a4c94ab4650">~ModelPartList</a> ()</td></tr>
+<tr class="memdesc:a9c45a4e506f201c312f65a4c94ab4650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor Frees root item allocated in constructor.  <br /></td></tr>
+<tr class="separator:a9c45a4e506f201c312f65a4c94ab4650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515c7a177324fc1fb83474fcff835662" id="r_a515c7a177324fc1fb83474fcff835662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a515c7a177324fc1fb83474fcff835662">clear</a> ()</td></tr>
 <tr class="separator:a515c7a177324fc1fb83474fcff835662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a6ebf42f2f1c5c0242154d093295756" id="r_a4a6ebf42f2f1c5c0242154d093295756"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a6ebf42f2f1c5c0242154d093295756">columnCount</a> (const QModelIndex &amp;<a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a>) const</td></tr>
+<tr class="memitem:a4a6ebf42f2f1c5c0242154d093295756" id="r_a4a6ebf42f2f1c5c0242154d093295756"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a6ebf42f2f1c5c0242154d093295756">columnCount</a> (const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>) const</td></tr>
+<tr class="memdesc:a4a6ebf42f2f1c5c0242154d093295756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return column count.  <br /></td></tr>
 <tr class="separator:a4a6ebf42f2f1c5c0242154d093295756"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60923d947a2eafb5dfabe1cf8461807e" id="r_a60923d947a2eafb5dfabe1cf8461807e"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60923d947a2eafb5dfabe1cf8461807e">data</a> (const QModelIndex &amp;<a class="el" href="#a5698ba9ca23f010369f12ff4a97976e2">index</a>, int role) const</td></tr>
+<tr class="memitem:a60923d947a2eafb5dfabe1cf8461807e" id="r_a60923d947a2eafb5dfabe1cf8461807e"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60923d947a2eafb5dfabe1cf8461807e">data</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>, int role) const</td></tr>
+<tr class="memdesc:a60923d947a2eafb5dfabe1cf8461807e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This returns the value of a particular row (i.e.  <br /></td></tr>
 <tr class="separator:a60923d947a2eafb5dfabe1cf8461807e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac28fbfeaf57aafc946127db8225c00b5" id="r_ac28fbfeaf57aafc946127db8225c00b5"><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac28fbfeaf57aafc946127db8225c00b5">flags</a> (const QModelIndex &amp;<a class="el" href="#a5698ba9ca23f010369f12ff4a97976e2">index</a>) const</td></tr>
+<tr class="memitem:ac28fbfeaf57aafc946127db8225c00b5" id="r_ac28fbfeaf57aafc946127db8225c00b5"><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac28fbfeaf57aafc946127db8225c00b5">flags</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>) const</td></tr>
+<tr class="memdesc:ac28fbfeaf57aafc946127db8225c00b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard function used by Qt internally.  <br /></td></tr>
 <tr class="separator:ac28fbfeaf57aafc946127db8225c00b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a54464c7907f0c18c2f5edd7cb4a51e" id="r_a6a54464c7907f0c18c2f5edd7cb4a51e"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a54464c7907f0c18c2f5edd7cb4a51e">headerData</a> (int section, Qt::Orientation orientation, int role) const</td></tr>
+<tr class="memdesc:a6a54464c7907f0c18c2f5edd7cb4a51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard function used by Qt internally.  <br /></td></tr>
 <tr class="separator:a6a54464c7907f0c18c2f5edd7cb4a51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5698ba9ca23f010369f12ff4a97976e2" id="r_a5698ba9ca23f010369f12ff4a97976e2"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5698ba9ca23f010369f12ff4a97976e2">index</a> (int row, int column, const QModelIndex &amp;<a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a>) const</td></tr>
+<tr class="memitem:a5698ba9ca23f010369f12ff4a97976e2" id="r_a5698ba9ca23f010369f12ff4a97976e2"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5698ba9ca23f010369f12ff4a97976e2">index</a> (int row, int column, const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>) const</td></tr>
+<tr class="memdesc:a5698ba9ca23f010369f12ff4a97976e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a valid QModelIndex for a location in the tree (row is the row in the tree under "parent" or under the root of the tree if parent isnt specified.  <br /></td></tr>
 <tr class="separator:a5698ba9ca23f010369f12ff4a97976e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aeb9586030b325193894ddfe99e629c" id="r_a2aeb9586030b325193894ddfe99e629c"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a> (const QModelIndex &amp;<a class="el" href="#a5698ba9ca23f010369f12ff4a97976e2">index</a>) const</td></tr>
+<tr class="memitem:a2aeb9586030b325193894ddfe99e629c" id="r_a2aeb9586030b325193894ddfe99e629c"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a> (const QModelIndex &amp;<a class="el" href="#a36d3309449f228eaed85a332a725be15">index</a>) const</td></tr>
+<tr class="memdesc:a2aeb9586030b325193894ddfe99e629c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take a QModelIndex for an item, get a QModel Index for its parent.  <br /></td></tr>
 <tr class="separator:a2aeb9586030b325193894ddfe99e629c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05d52c5cac09750d28ad041ec6a3d5ab" id="r_a05d52c5cac09750d28ad041ec6a3d5ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05d52c5cac09750d28ad041ec6a3d5ab">rowCount</a> (const QModelIndex &amp;<a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a>) const</td></tr>
+<tr class="memitem:a05d52c5cac09750d28ad041ec6a3d5ab" id="r_a05d52c5cac09750d28ad041ec6a3d5ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05d52c5cac09750d28ad041ec6a3d5ab">rowCount</a> (const QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>) const</td></tr>
+<tr class="memdesc:a05d52c5cac09750d28ad041ec6a3d5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of rows (items) under an item in tree.  <br /></td></tr>
 <tr class="separator:a05d52c5cac09750d28ad041ec6a3d5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6e2e108802afbc45e4bd054dccf982" id="r_a1b6e2e108802afbc45e4bd054dccf982"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model_part.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b6e2e108802afbc45e4bd054dccf982">getRootItem</a> ()</td></tr>
+<tr class="memdesc:a1b6e2e108802afbc45e4bd054dccf982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the root item of the tree.  <br /></td></tr>
 <tr class="separator:a1b6e2e108802afbc45e4bd054dccf982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac687a2942c6e8b8b23df36c32a0deaeb" id="r_ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memItemLeft" align="right" valign="top"><a id="ac687a2942c6e8b8b23df36c32a0deaeb" name="ac687a2942c6e8b8b23df36c32a0deaeb"></a>
-QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b> (QModelIndex &amp;<a class="el" href="#a2aeb9586030b325193894ddfe99e629c">parent</a>, const QList&lt; QVariant &gt; &amp;<a class="el" href="#a60923d947a2eafb5dfabe1cf8461807e">data</a>)</td></tr>
+<tr class="memitem:ac687a2942c6e8b8b23df36c32a0deaeb" id="r_ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac687a2942c6e8b8b23df36c32a0deaeb">appendChild</a> (QModelIndex &amp;<a class="el" href="#a95162d13f90586be9b645f02cc4694f4">parent</a>, const QList&lt; QVariant &gt; &amp;<a class="el" href="#a59ef0e03a214d3440d1ce86e5c64ba32">data</a>)</td></tr>
 <tr class="separator:ac687a2942c6e8b8b23df36c32a0deaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a> class provides a model to represent a list of 3D model parts in a tree structure. </p>
+<p>This class extends QAbstractItemModel to allow the display of a hierarchical list of <a class="el" href="class_model_part.html">ModelPart</a> objects,</p>
+<p>typically in a QTreeView. It manages the data and structure of the model, including the root item,</p>
+<p>column information, and operations to add, remove, and access parts. </p>
+
+<p class="definition">Definition at line <a class="el" href="_model_part_list_8cpp_source.html#l00037">37</a> of file <a class="el" href="_model_part_list_8cpp_source.html">ModelPartList.cpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9c45a4e506f201c312f65a4c94ab4650" name="a9c45a4e506f201c312f65a4c94ab4650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c45a4e506f201c312f65a4c94ab4650">&#9670;&#160;</a></span>~ModelPartList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ModelPartList::~ModelPartList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor for <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a>. </p>
+<p>Deletes the root item to free allocated memory. The destructor of the <a class="el" href="class_model_part.html">ModelPart</a> class recursively deletes all its child items, ensuring that all parts of the model are properly deallocated. </p>
+
+</div>
+</div>
 <a id="a039afc4b526b377bd346e8ea5b2d027d" name="a039afc4b526b377bd346e8ea5b2d027d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a039afc4b526b377bd346e8ea5b2d027d">&#9670;&#160;</a></span>ModelPartList()</h2>
 
@@ -166,7 +237,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>&lt; A special Qt tag used to indicate that this is a special Qt class that might require preprocessing before compiling. Constructor Arguments are standard arguments for this type of class but are not used in this example. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>&lt; A special Qt tag used to indicate that this is a special Qt class that might require preprocessing before compiling. </p>
+<p>Constructor Arguments are standard arguments for this type of class but are not used in this example. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>is not used </td></tr>
     <tr><td class="paramname">parent</td><td>is used by the parent class constructor </td></tr>
@@ -177,7 +250,7 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 </div>
 </div>
 <a id="a9c45a4e506f201c312f65a4c94ab4650" name="a9c45a4e506f201c312f65a4c94ab4650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c45a4e506f201c312f65a4c94ab4650">&#9670;&#160;</a></span>~ModelPartList()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c45a4e506f201c312f65a4c94ab4650">&#9670;&#160;</a></span>~ModelPartList() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,13 +263,115 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destructor Frees root item allocated in constructor </p>
+
+<p>Destructor Frees root item allocated in constructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac5be99543fc05f19164a16ff56274744" name="ac5be99543fc05f19164a16ff56274744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5be99543fc05f19164a16ff56274744">&#9670;&#160;</a></span>addPart() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPartList::addPart </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&lt; A special Qt macro used to indicate that this class uses Qt's signals and slots. </p>
+<p>Constructor for <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a>.</p>
+<p>Initializes the model with a root item that serves as the column headers. The root item is created with the provided data string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data string used to initialize the root item (e.g., column headers). </td></tr>
+    <tr><td class="paramname">parent</td><td>The parent object, used by the QAbstractItemModel constructor. Defaults to nullptr. / <a class="el" href="class_model_part_list.html" title="The ModelPartList class provides a model to represent a list of 3D model parts in a tree structure.">ModelPartList</a>(const QString&amp; data, QObject parent = nullptr);</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>/**</p>
+<p>Adds a new model part to the list.</p>
+<p>Creates a new <a class="el" href="class_model_part.html">ModelPart</a> object with the given name and file path, and adds it to the model. The <a class="el" href="class_model_part.html">ModelPart</a> is added as a child of the root item. The STL file associated with the part is loaded, and its initial visibility is set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model part. </td></tr>
+    <tr><td class="paramname">filePath</td><td>The file path to the STL file of the model part. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5be99543fc05f19164a16ff56274744" name="ac5be99543fc05f19164a16ff56274744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5be99543fc05f19164a16ff56274744">&#9670;&#160;</a></span>addPart() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPartList::addPart </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac687a2942c6e8b8b23df36c32a0deaeb" name="ac687a2942c6e8b8b23df36c32a0deaeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac687a2942c6e8b8b23df36c32a0deaeb">&#9670;&#160;</a></span>appendChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex ModelPartList::appendChild </td>
+          <td>(</td>
+          <td class="paramtype">QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>parent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; QVariant &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a515c7a177324fc1fb83474fcff835662" name="a515c7a177324fc1fb83474fcff835662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a515c7a177324fc1fb83474fcff835662">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ModelPartList::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4a6ebf42f2f1c5c0242154d093295756" name="a4a6ebf42f2f1c5c0242154d093295756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a6ebf42f2f1c5c0242154d093295756">&#9670;&#160;</a></span>columnCount()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6ebf42f2f1c5c0242154d093295756">&#9670;&#160;</a></span>columnCount() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +384,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return column count </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Return column count. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>is not used </td></tr>
   </table>
@@ -219,8 +396,43 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 
 </div>
 </div>
+<a id="ae0af4bc07e14140f65e1db531257c94d" name="ae0af4bc07e14140f65e1db531257c94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0af4bc07e14140f65e1db531257c94d">&#9670;&#160;</a></span>columnCount() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ModelPartList::columnCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>parent</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of columns in the model. </p>
+<p>The number of columns is determined by the column count of the root item. This is typically 2 (Part Name, Visibility).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>The parent index (not used in this implementation). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of columns. </dd></dl>
+
+</div>
+</div>
 <a id="a60923d947a2eafb5dfabe1cf8461807e" name="a60923d947a2eafb5dfabe1cf8461807e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60923d947a2eafb5dfabe1cf8461807e">&#9670;&#160;</a></span>data()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a60923d947a2eafb5dfabe1cf8461807e">&#9670;&#160;</a></span>data() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,7 +449,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This returns the value of a particular row (i.e. the item index) and columns (i.e. either the "Part" or "Visible" property). It is used by QT internally - this is how Qt retrieves the text to display in the TreeView </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>This returns the value of a particular row (i.e. </p>
+<p>the item index) and columns (i.e. either the "Part" or "Visible" property). It is used by QT internally - this is how Qt retrieves the text to display in the TreeView </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>in a stucture Qt uses to specify the row and column it wants data for </td></tr>
     <tr><td class="paramname">role</td><td>is how Qt specifies what it wants to do with the data </td></tr>
@@ -248,8 +462,48 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 
 </div>
 </div>
+<a id="a59ef0e03a214d3440d1ce86e5c64ba32" name="a59ef0e03a214d3440d1ce86e5c64ba32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ef0e03a214d3440d1ce86e5c64ba32">&#9670;&#160;</a></span>data() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant ModelPartList::data </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>role</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the data for the item at the given index and role. </p>
+<p>This function retrieves the data to be displayed for a specific item in the model. It only supports the Qt::DisplayRole, providing the name or visibility status of the <a class="el" href="class_model_part.html">ModelPart</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the item for which data is requested. </td></tr>
+    <tr><td class="paramname">role</td><td>The role of the data being requested (e.g., Qt::DisplayRole, Qt::EditRole). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The data for the item, as a QVariant. </dd></dl>
+
+</div>
+</div>
 <a id="ac28fbfeaf57aafc946127db8225c00b5" name="ac28fbfeaf57aafc946127db8225c00b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac28fbfeaf57aafc946127db8225c00b5">&#9670;&#160;</a></span>flags()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28fbfeaf57aafc946127db8225c00b5">&#9670;&#160;</a></span>flags() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,13 +516,50 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Standard function used by Qt internally. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Standard function used by Qt internally. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>in a stucture Qt uses to specify the row and column it wants data for </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a Qt item flags </dd></dl>
+
+</div>
+</div>
+<a id="aded47caa71080090631c021c21bf4e6d" name="aded47caa71080090631c021c21bf4e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded47caa71080090631c021c21bf4e6d">&#9670;&#160;</a></span>flags() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt::ItemFlags ModelPartList::flags </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the flags for the item at the given index. </p>
+<p>Determines how the item can be interacted with (e.g., selectable, editable). The flags are combined to indicate the supported interactions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the item. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The item flags. </dd></dl>
 
 </div>
 </div>
@@ -286,12 +577,14 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get a pointer to the root item of the tree </p><dl class="section return"><dt>Returns</dt><dd>the root item pointer </dd></dl>
+
+<p>Get a pointer to the root item of the tree. </p>
+<dl class="section return"><dt>Returns</dt><dd>the root item pointer </dd></dl>
 
 </div>
 </div>
 <a id="a6a54464c7907f0c18c2f5edd7cb4a51e" name="a6a54464c7907f0c18c2f5edd7cb4a51e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a54464c7907f0c18c2f5edd7cb4a51e">&#9670;&#160;</a></span>headerData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a54464c7907f0c18c2f5edd7cb4a51e">&#9670;&#160;</a></span>headerData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,12 +606,59 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Standard function used by Qt internally. </p>
 
 </div>
 </div>
+<a id="a433d50449a83c42eb8c0384c7b7c0fea" name="a433d50449a83c42eb8c0384c7b7c0fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433d50449a83c42eb8c0384c7b7c0fea">&#9670;&#160;</a></span>headerData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant ModelPartList::headerData </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>section</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt::Orientation</td>          <td class="paramname"><span class="paramname"><em>orientation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>role</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the header data for the given section, orientation, and role. </p>
+<p>Provides the header labels for the columns of the model. For horizontal headers, it returns "Part" for the first column and "Visible?" for the second column.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">section</td><td>The section number (column number for horizontal headers). </td></tr>
+    <tr><td class="paramname">orientation</td><td>The orientation of the header (Qt::Horizontal or Qt::Vertical). </td></tr>
+    <tr><td class="paramname">role</td><td>The role of the data being requested (e.g., Qt::DisplayRole). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The header data. </dd></dl>
+
+</div>
+</div>
 <a id="a5698ba9ca23f010369f12ff4a97976e2" name="a5698ba9ca23f010369f12ff4a97976e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5698ba9ca23f010369f12ff4a97976e2">&#9670;&#160;</a></span>index()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5698ba9ca23f010369f12ff4a97976e2">&#9670;&#160;</a></span>index() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +680,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get a valid QModelIndex for a location in the tree (row is the row in the tree under "parent" or under the root of the tree if parent isnt specified. Column is either 0 = "Part" or 1 = "Visible" in this example </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Get a valid QModelIndex for a location in the tree (row is the row in the tree under "parent" or under the root of the tree if parent isnt specified. </p>
+<p>Column is either 0 = "Part" or 1 = "Visible" in this example </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>is the item index </td></tr>
     <tr><td class="paramname">column</td><td>is 0 or 1 - part name or visible stringstream </td></tr>
@@ -352,8 +694,54 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 
 </div>
 </div>
+<a id="a36d3309449f228eaed85a332a725be15" name="a36d3309449f228eaed85a332a725be15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d3309449f228eaed85a332a725be15">&#9670;&#160;</a></span>index() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex ModelPartList::index </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>column</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">QModelIndex()</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the index for the item in the model given its row, column and parent. </p>
+<p>This method is used to create a QModelIndex for a specific item in the model. The QModelIndex is a lightweight pointer to an item in the model.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>The row number of the item. </td></tr>
+    <tr><td class="paramname">column</td><td>The column number of the item. </td></tr>
+    <tr><td class="paramname">parent</td><td>The QModelIndex of the parent item. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The QModelIndex of the item at the given row and column with the specified parent. </dd></dl>
+
+</div>
+</div>
 <a id="a2aeb9586030b325193894ddfe99e629c" name="a2aeb9586030b325193894ddfe99e629c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aeb9586030b325193894ddfe99e629c">&#9670;&#160;</a></span>parent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aeb9586030b325193894ddfe99e629c">&#9670;&#160;</a></span>parent() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,7 +754,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Take a QModelIndex for an item, get a QModel Index for its parent </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Take a QModelIndex for an item, get a QModel Index for its parent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>of item </td></tr>
   </table>
@@ -376,8 +766,43 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 
 </div>
 </div>
+<a id="a95162d13f90586be9b645f02cc4694f4" name="a95162d13f90586be9b645f02cc4694f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95162d13f90586be9b645f02cc4694f4">&#9670;&#160;</a></span>parent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex ModelPartList::parent </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the parent index for the given index. </p>
+<p>This method returns the QModelIndex of the parent of the item at the given index. If the item is a top-level item, it returns an invalid QModelIndex.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the item for which the parent is requested. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The QModelIndex of the parent of the item at the given index. </dd></dl>
+
+</div>
+</div>
 <a id="a05d52c5cac09750d28ad041ec6a3d5ab" name="a05d52c5cac09750d28ad041ec6a3d5ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05d52c5cac09750d28ad041ec6a3d5ab">&#9670;&#160;</a></span>rowCount()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d52c5cac09750d28ad041ec6a3d5ab">&#9670;&#160;</a></span>rowCount() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,7 +815,9 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get number of rows (items) under an item in tree </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Get number of rows (items) under an item in tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">is</td><td>the parent, all items under this will be counted </td></tr>
   </table>
@@ -400,10 +827,87 @@ QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>appendChild</b
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_model_part_list_8h_source.html">ModelPartList.h</a></li>
-<li><b>ModelPartList.cpp</b></li>
-</ul>
+<a id="a789e0f0faac195b26e33d6d26ee37007" name="a789e0f0faac195b26e33d6d26ee37007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a789e0f0faac195b26e33d6d26ee37007">&#9670;&#160;</a></span>rowCount() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ModelPartList::rowCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">QModelIndex()</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of rows under the given parent. </p>
+<p>If the parent is invalid, it returns the number of top-level rows in the model. Otherwise, it returns the number of children of the parent item.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>The QModelIndex of the parent item. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of rows under the given parent. </dd></dl>
+
+</div>
+</div>
+<a id="ae46ca3f30caafbbb7125f04860625243" name="ae46ca3f30caafbbb7125f04860625243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae46ca3f30caafbbb7125f04860625243">&#9670;&#160;</a></span>setData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ModelPartList::setData </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVariant &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>role</em></span><span class="paramdefsep"> = </span><span class="paramdefval">Qt::EditRole</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the data for the item at the given index and role. </p>
+<p>This method sets the data associated with a specific item in the model. It handles changes to the visibility of a <a class="el" href="class_model_part.html">ModelPart</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the item to set data for. </td></tr>
+    <tr><td class="paramname">value</td><td>The new data value. </td></tr>
+    <tr><td class="paramname">role</td><td>The role of the data to set (e.g., Qt::DisplayRole, Qt::EditRole). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the data was successfully set; otherwise false. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

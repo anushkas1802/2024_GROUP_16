@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../class_main_window.html',1,'']]],
-  ['mainwindow_2eh_1',['mainwindow.h',['../mainwindow_8h.html',1,'']]],
-  ['modelpart_2',['ModelPart',['../class_model_part.html',1,'']]],
-  ['modelpartlist_3',['ModelPartList',['../class_model_part_list.html',1,'ModelPartList'],['../class_model_part_list.html#a039afc4b526b377bd346e8ea5b2d027d',1,'ModelPartList::ModelPartList()']]],
-  ['modelpartlist_2eh_4',['ModelPartList.h',['../_model_part_list_8h.html',1,'']]]
+  ['headerdata_0',['headerData',['../class_model_part_list.html#a433d50449a83c42eb8c0384c7b7c0fea',1,'ModelPartList::headerData(int section, Qt::Orientation orientation, int role) const override'],['../class_model_part_list.html#a6a54464c7907f0c18c2f5edd7cb4a51e',1,'ModelPartList::headerData(int section, Qt::Orientation orientation, int role) const']]]
 ];
