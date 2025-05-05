@@ -33,10 +33,8 @@ signals:
     void sendActors(vtkActorCollection* actors);
 
 private slots:
-    void handleButton();
     void updateRender();
     void updateRenderFromTree(const QModelIndex& index);
-    void handleOpenOptions();
     void handleTreeClicked();
     void on_actionOpenFile_triggered();
     void on_actionOpenSingleFile_triggered();

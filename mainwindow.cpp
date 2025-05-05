@@ -36,8 +36,7 @@ MainWindow::MainWindow(QWidget* parent)
 {
     ui->setupUi(this);
 
-    connect(ui->addButton, &QPushButton::released, this, &MainWindow::handleButton);
-    connect(ui->openOptions, &QPushButton::released, this, &MainWindow::handleOpenOptions);
+
     connect(this, &MainWindow::statusUpdateMessageSignal, ui->statusbar, &QStatusBar::showMessage);
     connect(ui->startVRButton, &QPushButton::clicked, this, &MainWindow::handleStartVR);
 
@@ -98,14 +97,6 @@ void MainWindow::statusUpdateMessage(const QString& message, int timeout)
     ui->statusbar->showMessage(message, timeout);
 }
 
-// This button does nothing, was just for week 2 sign off
-void MainWindow::handleButton()
-{
-    QMessageBox msgBox;
-    msgBox.setText("Add button was clicked");
-    msgBox.exec();
-    emit statusUpdateMessageSignal("Add button was clicked", 2000);
-}
 
 void MainWindow::on_actionItemOptions_triggered()
 {
@@ -151,13 +142,7 @@ void MainWindow::on_actionItemOptions_triggered()
         emit statusUpdateMessageSignal("Updated item options", 2000);
     }
 }
-// Button that opens option dialog for testing
-void MainWindow::handleOpenOptions()
-{
-    OptionDialog optionDialog(this);
-    optionDialog.exec();
-    emit statusUpdateMessageSignal("Open Options button was clicked", 2000);
-}
+
 
 // Handel when tree view is clicked and emits a message
 void MainWindow::handleTreeClicked()
@@ -245,7 +230,7 @@ void MainWindow::loadInitialPartsFromFolder(const QString& folderPath)
     loadPartsRecursively(dir, partList->getRootItem());
     updateRender();
 }
-
+// Code for the button that starts the VR
 void MainWindow::startVRRendering() {
 
     // loop through tree and add actors using add actor offline
@@ -296,7 +281,7 @@ void MainWindow::loadPartsRecursively(const QDir& dir, ModelPart* parentItem)
     }
 
 }
-
+//
 void MainWindow::handleStartVR() {
     if (vrThread && vrThread->isRunning()) {
 
