@@ -21,7 +21,7 @@ jobs:
       - name: Install doxygen
         run: sudo apt-get install -y doxygen
       - name: Run Doxygen
-        working-directory: ${{ github.workspace }}/2024_GROUP_16_Pages
+        working-directory: ${{ github.workspace }}/2024_GROUP_16
         run: doxygen
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
@@ -29,4 +29,4 @@ jobs:
           # The branch the action should deploy to.
           branch: gh-pages
           # The folder the action should deploy.
-          folder: ${{ github.workspace }}/2024_GROUP_16_Pages/html
+          folder: ${{ github.workspace }}/2024_GROUP_16/html
