@@ -144,7 +144,7 @@ void MainWindow::on_actionItemOptions_triggered()
 }
 
 
-// Handel when tree view is clicked and emits a message
+// Handle when tree view is clicked and emits a message
 void MainWindow::handleTreeClicked()
 {
     QModelIndex index = ui->treeView->currentIndex();

@@ -9,23 +9,23 @@
 #include <vtkPolyData.h>
 #include <vtkDataSetMapper.h>
 
-// Constructor: Initializes with data and an optional parent
+// Constructor
 ModelPart::ModelPart(const QList<QVariant>& data, ModelPart* parent)
     : m_itemData(data), m_parentItem(parent) {
 }
 
-// Destructor: Deletes all child items to free memory
+// Destructor
 ModelPart::~ModelPart() {
     qDeleteAll(m_childItems);
 }
 
-// Adds a child to this model part and sets its parent
+// Adds a child part and sets the parent
 void ModelPart::appendChild(ModelPart* item) {
     item->m_parentItem = this;
     m_childItems.append(item);
 }
 
-// Returns a pointer to the child at the given row, or nullptr if out of range
+// Returns a pointer or null
 ModelPart* ModelPart::child(int row) {
     if (row < 0 || row >= m_childItems.size())
         return nullptr;
@@ -133,7 +133,7 @@ void ModelPart::setColor(const QColor& color) {
     setColour(color.red(), color.green(), color.blue());
 }
 
-// Creates and returns a new actor with the same geometry and property settings
+// Creates and returns a new actor with the same properties, needed for the VR thread to work
 vtkActor* ModelPart::getNewActor() {
     if (!this->stlActor) {
         return nullptr;
