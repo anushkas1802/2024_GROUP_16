@@ -1,0 +1,171 @@
+\doxysection{Option\+Dialog Class Reference}
+\hypertarget{class_option_dialog}{}\label{class_option_dialog}\index{OptionDialog@{OptionDialog}}
+
+
+The \doxylink{class_option_dialog}{Option\+Dialog} class provides a dialog for setting object properties.  
+
+
+
+
+{\ttfamily \#include $<$optiondialog.\+h$>$}
+
+Inheritance diagram for Option\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_option_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_option_dialog_a03d29a0b769202f3576a4e45237d1259}{red\+\_\+change}} ()
+\begin{DoxyCompactList}\small\item\em Slot function to handle red color changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_option_dialog_a560cd51ecb7186b6238e1572eb8a2644}{green\+\_\+change}} ()
+\begin{DoxyCompactList}\small\item\em Slot function to handle green color changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_option_dialog_a8b11fab75238ad898a2b14f6b40afa81}{blue\+\_\+change}} ()
+\begin{DoxyCompactList}\small\item\em Slot function to handle blue color changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_option_dialog_a4540736a5c6e4468dad5165c7aefc8bc}{Option\+Dialog}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_option_dialog}{Option\+Dialog}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_option_dialog_a640a1faddda44f2567cf386de0085ec7}{\texorpdfstring{$\sim$}{\string~}\+Option\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_option_dialog}{Option\+Dialog}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_option_dialog_afd06873a6bf8ec9500a39e9d0c735c21}{set\+Values}} (const QString \&name, const QColor \&color, bool visible)
+\begin{DoxyCompactList}\small\item\em Sets the values of the dialog\textquotesingle{}s input fields. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_option_dialog_ace0af27c027082ead61b1e13dc32730e}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name entered in the dialog. \end{DoxyCompactList}\item 
+QColor \mbox{\hyperlink{class_option_dialog_a9913b04ce34c705c692609ac85260c1d}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color selected in the dialog. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_option_dialog_af13f9c345ed58f8bc8a2938d406a4bde}{is\+Visible}} () const
+\begin{DoxyCompactList}\small\item\em Gets the visibility status selected in the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_option_dialog}{Option\+Dialog} class provides a dialog for setting object properties. 
+
+This dialog allows users to set the name, color (using RGB sliders), and visibility of an object. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_option_dialog_a4540736a5c6e4468dad5165c7aefc8bc}\index{OptionDialog@{OptionDialog}!OptionDialog@{OptionDialog}}
+\index{OptionDialog@{OptionDialog}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{OptionDialog()}{OptionDialog()}}
+{\footnotesize\ttfamily \label{class_option_dialog_a4540736a5c6e4468dad5165c7aefc8bc} 
+Option\+Dialog\+::\+Option\+Dialog (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for \doxylink{class_option_dialog}{Option\+Dialog}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_option_dialog_a640a1faddda44f2567cf386de0085ec7}\index{OptionDialog@{OptionDialog}!````~OptionDialog@{\texorpdfstring{$\sim$}{\string~}OptionDialog}}
+\index{````~OptionDialog@{\texorpdfstring{$\sim$}{\string~}OptionDialog}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OptionDialog()}{\string~OptionDialog()}}
+{\footnotesize\ttfamily \label{class_option_dialog_a640a1faddda44f2567cf386de0085ec7} 
+Option\+Dialog\+::\texorpdfstring{$\sim$}{\string~}\+Option\+Dialog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_option_dialog}{Option\+Dialog}. 
+
+Destructor for \doxylink{class_option_dialog}{Option\+Dialog}. Deletes the UI object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_option_dialog_a8b11fab75238ad898a2b14f6b40afa81}\index{OptionDialog@{OptionDialog}!blue\_change@{blue\_change}}
+\index{blue\_change@{blue\_change}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{blue\_change}{blue\_change}}
+{\footnotesize\ttfamily \label{class_option_dialog_a8b11fab75238ad898a2b14f6b40afa81} 
+void Option\+Dialog\+::blue\+\_\+change (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot function to handle blue color changes. 
+
+Slot function to handle blue color changes. Updates the color display label with the new blue value. \Hypertarget{class_option_dialog_a9913b04ce34c705c692609ac85260c1d}\index{OptionDialog@{OptionDialog}!getColor@{getColor}}
+\index{getColor@{getColor}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \label{class_option_dialog_a9913b04ce34c705c692609ac85260c1d} 
+QColor Option\+Dialog\+::get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the color selected in the dialog. 
+
+\begin{DoxyReturn}{Returns}
+The QColor object representing the selected color. 
+\end{DoxyReturn}
+\Hypertarget{class_option_dialog_ace0af27c027082ead61b1e13dc32730e}\index{OptionDialog@{OptionDialog}!getName@{getName}}
+\index{getName@{getName}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_option_dialog_ace0af27c027082ead61b1e13dc32730e} 
+QString Option\+Dialog\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the name entered in the dialog. 
+
+\begin{DoxyReturn}{Returns}
+The name string. 
+\end{DoxyReturn}
+\Hypertarget{class_option_dialog_a560cd51ecb7186b6238e1572eb8a2644}\index{OptionDialog@{OptionDialog}!green\_change@{green\_change}}
+\index{green\_change@{green\_change}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{green\_change}{green\_change}}
+{\footnotesize\ttfamily \label{class_option_dialog_a560cd51ecb7186b6238e1572eb8a2644} 
+void Option\+Dialog\+::green\+\_\+change (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot function to handle green color changes. 
+
+Slot function to handle green color changes. Updates the color display label with the new green value. \Hypertarget{class_option_dialog_af13f9c345ed58f8bc8a2938d406a4bde}\index{OptionDialog@{OptionDialog}!isVisible@{isVisible}}
+\index{isVisible@{isVisible}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{isVisible()}{isVisible()}}
+{\footnotesize\ttfamily \label{class_option_dialog_af13f9c345ed58f8bc8a2938d406a4bde} 
+bool Option\+Dialog\+::is\+Visible (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the visibility status selected in the dialog. 
+
+\begin{DoxyReturn}{Returns}
+True if the object is set to visible, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_option_dialog_a03d29a0b769202f3576a4e45237d1259}\index{OptionDialog@{OptionDialog}!red\_change@{red\_change}}
+\index{red\_change@{red\_change}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{red\_change}{red\_change}}
+{\footnotesize\ttfamily \label{class_option_dialog_a03d29a0b769202f3576a4e45237d1259} 
+void Option\+Dialog\+::red\+\_\+change (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot function to handle red color changes. 
+
+Slot function to handle red color changes. Updates the color display label with the new red value. \Hypertarget{class_option_dialog_afd06873a6bf8ec9500a39e9d0c735c21}\index{OptionDialog@{OptionDialog}!setValues@{setValues}}
+\index{setValues@{setValues}!OptionDialog@{OptionDialog}}
+\doxysubsubsection{\texorpdfstring{setValues()}{setValues()}}
+{\footnotesize\ttfamily \label{class_option_dialog_afd06873a6bf8ec9500a39e9d0c735c21} 
+void Option\+Dialog\+::set\+Values (\begin{DoxyParamCaption}\item[{const QString \&}]{name}{, }\item[{const QColor \&}]{color}{, }\item[{bool}]{visible}{}\end{DoxyParamCaption})}
+
+
+
+Sets the values of the dialog\textquotesingle{}s input fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to set. \\
+\hline
+{\em color} & The color to set. \\
+\hline
+{\em visible} & The visibility flag to set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{optiondialog_8h}{optiondialog.\+h}}\item 
+\mbox{\hyperlink{optiondialog_8cpp}{optiondialog.\+cpp}}\end{DoxyCompactItemize}

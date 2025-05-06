@@ -31,7 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot 2025-05-05 165119.png"/></td>
   <td id="projectalign">
    <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
@@ -114,7 +114,7 @@ $(function(){initNavTree('class_v_r_render_thread.html',''); initResizable(true)
 </div><!--header-->
 <div class="contents">
 
-<p>This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor.  
+<p>This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor. This callback functionallity means that once the renderWindowInteractor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_v_r_render_thread_8h_source.html">VRRenderThread.h</a>&gt;</code></p>
@@ -171,8 +171,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae6937f678d9d29601b42abb1a2ea1427" id="r_ae6937f678d9d29601b42abb1a2ea1427"><td class="memItemLeft" align="right" valign="top">enum VRRenderThread:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6937f678d9d29601b42abb1a2ea1427">Command</a></td></tr>
-<tr class="memdesc:ae6937f678d9d29601b42abb1a2ea1427"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of command names.  <br /></td></tr>
+<tr class="memitem:ae6937f678d9d29601b42abb1a2ea1427" id="r_ae6937f678d9d29601b42abb1a2ea1427"><td class="memItemLeft" align="right" valign="top"><a id="ae6937f678d9d29601b42abb1a2ea1427" name="ae6937f678d9d29601b42abb1a2ea1427"></a>
+enum VRRenderThread:: { ... } &#160;</td><td class="memItemRight" valign="bottom"><b>Command</b></td></tr>
+<tr class="memdesc:ae6937f678d9d29601b42abb1a2ea1427"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of command names. <br /></td></tr>
 <tr class="separator:ae6937f678d9d29601b42abb1a2ea1427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -185,10 +186,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:af5bbbaf8625fc42278476a43bf018661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor. </p>
-<p>This callback functionallity means that once the renderWindowInteractor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes </p>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00025">25</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
+<div class="textblock"><p>This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor. This callback functionallity means that once the renderWindowInteractor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a9250c05d40f573259d5c63e07856c2cd" name="a9250c05d40f573259d5c63e07856c2cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9250c05d40f573259d5c63e07856c2cd">&#9670;&#160;</a></span>anonymous enum</h2>
@@ -204,17 +202,15 @@ Protected Member Functions</h2></td></tr>
 
 <p>List of command names. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2" name="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2"></a>END_RENDER&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to end the rendering loop. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2" name="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2"></a>END_RENDER&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to end the rendering loop </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f" name="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f"></a>ROTATE_X&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the X-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f" name="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f"></a>ROTATE_X&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the X-axis </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999" name="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999"></a>ROTATE_Y&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Y-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999" name="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999"></a>ROTATE_Y&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Y-axis </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980" name="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980"></a>ROTATE_Z&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Z-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980" name="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980"></a>ROTATE_Z&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Z-axis </p>
 </td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8h_source.html#l00040">40</a> of file <a class="el" href="_v_r_render_thread_8h_source.html">VRRenderThread.h</a>.</p>
 
 </div>
 </div>
@@ -232,17 +228,15 @@ Protected Member Functions</h2></td></tr>
 
 <p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to signal the VR rendering loop to terminate. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2" name="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2"></a>END_RENDER&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to end the rendering loop. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2" name="a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2"></a>END_RENDER&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to end the rendering loop </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f" name="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f"></a>ROTATE_X&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the X-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f" name="a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f"></a>ROTATE_X&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the X-axis </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999" name="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999"></a>ROTATE_Y&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Y-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999" name="a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999"></a>ROTATE_Y&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Y-axis </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980" name="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980"></a>ROTATE_Z&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Z-axis. </p>
+<tr><td class="fieldname"><a id="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980" name="a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980"></a>ROTATE_Z&#160;</td><td class="fielddoc"><p><a class="el" href="#ae54e55debf52a3afee10238942ef5669" title="Command to signal the VR rendering loop to terminate.">Command</a> to rotate around the Z-axis </p>
 </td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00033">33</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,15 +265,13 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor for the <a class="el" href="class_v_r_render_thread.html" title="This class inherits from the Qt class QThread which allows it to be a parallel thread to the main() t...">VRRenderThread</a>. </p>
-<p>This constructor is called by the <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> and runs in the primary program thread. It initializes the actor list and command variables. The OpenVR rendering components are initialized in the <a class="el" href="#af5bbbaf8625fc42278476a43bf018661" title="This function is the entry point for the VR rendering thread.">run()</a> method, as the interactor needs to run in the VR thread.</p>
+<p>This constructor is called by the <a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> and runs in the primary program thread. It initializes the actor list and command variables. The OpenVR rendering components are initialized in the <a class="el" href="#af5bbbaf8625fc42278476a43bf018661" title="This function is the entry point for the VR rendering thread.">run()</a> method, as the interactor needs to run in the VR thread.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>The parent QObject. </td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00114">114</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,8 +300,6 @@ Protected Member Functions</h2></td></tr>
 
 <p>Destructor for the <a class="el" href="class_v_r_render_thread.html" title="This class inherits from the Qt class QThread which allows it to be a parallel thread to the main() t...">VRRenderThread</a>. </p>
 <p>This destructor is crucial for managing resources. It is called when the VR thread is stopped. Ensure that all dynamically allocated memory and VTK objects are properly released here to prevent memory leaks during repeated start/stop cycles of the VR thread. </p>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00129">129</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,8 +400,6 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00135">135</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
-
 </div>
 </div>
 <a id="abbc905472309a2da473241a596e43813" name="abbc905472309a2da473241a596e43813"></a>
@@ -442,8 +430,6 @@ Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_v_r_render_thread_8cpp_source.html#l00160">160</a> of file <a class="el" href="_v_r_render_thread_8cpp_source.html">VRRenderThread.cpp</a>.</p>
 
 </div>
 </div>
@@ -534,23 +520,10 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae6937f678d9d29601b42abb1a2ea1427" name="ae6937f678d9d29601b42abb1a2ea1427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6937f678d9d29601b42abb1a2ea1427">&#9670;&#160;</a></span>[]</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum  { ... }  <a class="el" href="#ae54e55debf52a3afee10238942ef5669">VRRenderThread::Command</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>List of command names. </p>
-
-</div>
-</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><b>VRRenderThread.cpp</b></li>
+<li><a class="el" href="_v_r_render_thread_8h_source.html">VRRenderThread.h</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

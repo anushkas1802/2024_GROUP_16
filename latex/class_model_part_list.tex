@@ -1,0 +1,428 @@
+\doxysection{Model\+Part\+List Class Reference}
+\hypertarget{class_model_part_list}{}\label{class_model_part_list}\index{ModelPartList@{ModelPartList}}
+
+
+The \doxylink{class_model_part_list}{Model\+Part\+List} class provides a model to represent a list of 3D model parts in a tree structure.  
+
+
+Inheritance diagram for Model\+Part\+List\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model_part_list}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_model_part_list_ac5be99543fc05f19164a16ff56274744}{add\+Part}} (const QString \&name, const QString \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_model_part_list}{Model\+Part\+List}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650}{\texorpdfstring{$\sim$}{\string~}\+Model\+Part\+List}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_model_part_list}{Model\+Part\+List}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_model_part_list_ae0af4bc07e14140f65e1db531257c94d}{column\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}) const override
+\begin{DoxyCompactList}\small\item\em Returns the number of columns in the model. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_model_part_list_a59ef0e03a214d3440d1ce86e5c64ba32}{data}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}, int role) const override
+\begin{DoxyCompactList}\small\item\em Returns the data for the item at the given index and role. \end{DoxyCompactList}\item 
+Qt\+::\+Item\+Flags \mbox{\hyperlink{class_model_part_list_aded47caa71080090631c021c21bf4e6d}{flags}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}) const override
+\begin{DoxyCompactList}\small\item\em Returns the flags for the item at the given index. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{class_model_part_list_a433d50449a83c42eb8c0384c7b7c0fea}{header\+Data}} (int section, Qt\+::\+Orientation orientation, int role) const override
+\begin{DoxyCompactList}\small\item\em Returns the header data for the given section, orientation, and role. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}} (int row, int column, const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Returns the index for the item in the model given its row, column and parent. \end{DoxyCompactList}\item 
+QModel\+Index \mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}) const override
+\begin{DoxyCompactList}\small\item\em Returns the parent index for the given index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_model_part_list_a789e0f0faac195b26e33d6d26ee37007}{row\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}=QModel\+Index()) const override
+\begin{DoxyCompactList}\small\item\em Returns the number of rows under the given parent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_model_part_list_ae46ca3f30caafbbb7125f04860625243}{set\+Data}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}, const QVariant \&value, int role=Qt\+::\+Edit\+Role) override
+\begin{DoxyCompactList}\small\item\em Sets the data for the item at the given index and role. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_model_part_list_a039afc4b526b377bd346e8ea5b2d027d}{Model\+Part\+List}} (const QString \&\mbox{\hyperlink{class_model_part_list_a59ef0e03a214d3440d1ce86e5c64ba32}{data}}, QObject \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}=NULL)
+\item 
+\Hypertarget{class_model_part_list_ac5be99543fc05f19164a16ff56274744}\label{class_model_part_list_ac5be99543fc05f19164a16ff56274744} 
+void {\bfseries add\+Part} (const QString \&name, const QString \&file\+Path)
+\item 
+\mbox{\hyperlink{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650}{\texorpdfstring{$\sim$}{\string~}\+Model\+Part\+List}} ()
+\item 
+\Hypertarget{class_model_part_list_a515c7a177324fc1fb83474fcff835662}\label{class_model_part_list_a515c7a177324fc1fb83474fcff835662} 
+void {\bfseries clear} ()
+\item 
+int \mbox{\hyperlink{class_model_part_list_a4a6ebf42f2f1c5c0242154d093295756}{column\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}) const
+\item 
+QVariant \mbox{\hyperlink{class_model_part_list_a60923d947a2eafb5dfabe1cf8461807e}{data}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}, int role) const
+\item 
+Qt\+::\+Item\+Flags \mbox{\hyperlink{class_model_part_list_ac28fbfeaf57aafc946127db8225c00b5}{flags}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}) const
+\item 
+QVariant \mbox{\hyperlink{class_model_part_list_a6a54464c7907f0c18c2f5edd7cb4a51e}{header\+Data}} (int section, Qt\+::\+Orientation orientation, int role) const
+\item 
+QModel\+Index \mbox{\hyperlink{class_model_part_list_a5698ba9ca23f010369f12ff4a97976e2}{index}} (int row, int column, const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}) const
+\item 
+QModel\+Index \mbox{\hyperlink{class_model_part_list_a2aeb9586030b325193894ddfe99e629c}{parent}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a36d3309449f228eaed85a332a725be15}{index}}) const
+\item 
+int \mbox{\hyperlink{class_model_part_list_a05d52c5cac09750d28ad041ec6a3d5ab}{row\+Count}} (const QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}) const
+\item 
+\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_model_part_list_a1b6e2e108802afbc45e4bd054dccf982}{get\+Root\+Item}} ()
+\item 
+\Hypertarget{class_model_part_list_ac687a2942c6e8b8b23df36c32a0deaeb}\label{class_model_part_list_ac687a2942c6e8b8b23df36c32a0deaeb} 
+QModel\+Index {\bfseries append\+Child} (QModel\+Index \&\mbox{\hyperlink{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}{parent}}, const QList$<$ QVariant $>$ \&\mbox{\hyperlink{class_model_part_list_a59ef0e03a214d3440d1ce86e5c64ba32}{data}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_model_part_list}{Model\+Part\+List} class provides a model to represent a list of 3D model parts in a tree structure. 
+
+This class extends QAbstract\+Item\+Model to allow the display of a hierarchical list of \doxylink{class_model_part}{Model\+Part} objects,
+
+typically in a QTree\+View. It manages the data and structure of the model, including the root item,
+
+column information, and operations to add, remove, and access parts. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650}\index{ModelPartList@{ModelPartList}!````~ModelPartList@{\texorpdfstring{$\sim$}{\string~}ModelPartList}}
+\index{````~ModelPartList@{\texorpdfstring{$\sim$}{\string~}ModelPartList}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ModelPartList()}{\string~ModelPartList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650} 
+Model\+Part\+List\+::\texorpdfstring{$\sim$}{\string~}\+Model\+Part\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_model_part_list}{Model\+Part\+List}. 
+
+Deletes the root item to free allocated memory. The destructor of the \doxylink{class_model_part}{Model\+Part} class recursively deletes all its child items, ensuring that all parts of the model are properly deallocated. \Hypertarget{class_model_part_list_a039afc4b526b377bd346e8ea5b2d027d}\index{ModelPartList@{ModelPartList}!ModelPartList@{ModelPartList}}
+\index{ModelPartList@{ModelPartList}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{ModelPartList()}{ModelPartList()}}
+{\footnotesize\ttfamily \label{class_model_part_list_a039afc4b526b377bd346e8ea5b2d027d} 
+Model\+Part\+List\+::\+Model\+Part\+List (\begin{DoxyParamCaption}\item[{const QString \&}]{data}{, }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} A special Qt tag used to indicate that this is a special Qt class that might require preprocessing before compiling. Constructor Arguments are standard arguments for this type of class but are not used in this example. 
+\begin{DoxyParams}{Parameters}
+{\em data} & is not used \\
+\hline
+{\em parent} & is used by the parent class constructor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650}\index{ModelPartList@{ModelPartList}!````~ModelPartList@{\texorpdfstring{$\sim$}{\string~}ModelPartList}}
+\index{````~ModelPartList@{\texorpdfstring{$\sim$}{\string~}ModelPartList}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ModelPartList()}{\string~ModelPartList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a9c45a4e506f201c312f65a4c94ab4650} 
+Model\+Part\+List\+::\texorpdfstring{$\sim$}{\string~}\+Model\+Part\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Destructor Frees root item allocated in constructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_model_part_list_ac5be99543fc05f19164a16ff56274744}\index{ModelPartList@{ModelPartList}!addPart@{addPart}}
+\index{addPart@{addPart}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{addPart()}{addPart()}}
+{\footnotesize\ttfamily \label{class_model_part_list_ac5be99543fc05f19164a16ff56274744} 
+void Model\+Part\+List\+::add\+Part (\begin{DoxyParamCaption}\item[{const QString \&}]{name}{, }\item[{const QString \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_model_part_list}{Model\+Part\+List}. 
+
+\texorpdfstring{$<$}{<} A special Qt macro used to indicate that this class uses Qt\textquotesingle{}s signals and slots. 
+
+Initializes the model with a root item that serves as the column headers. The root item is created with the provided data string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data string used to initialize the root item (e.\+g., column headers). \\
+\hline
+{\em parent} & The parent object, used by the QAbstract\+Item\+Model constructor. Defaults to nullptr. / \doxylink{class_model_part_list}{Model\+Part\+List}(const QString\& data, QObject parent = nullptr);\\
+\hline
+\end{DoxyParams}
+/\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+
+Adds a new model part to the list.
+
+Creates a new \doxylink{class_model_part}{Model\+Part} object with the given name and file path, and adds it to the model. The \doxylink{class_model_part}{Model\+Part} is added as a child of the root item. The STL file associated with the part is loaded, and its initial visibility is set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the model part. \\
+\hline
+{\em file\+Path} & The file path to the STL file of the model part. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_model_part_list_a4a6ebf42f2f1c5c0242154d093295756}\index{ModelPartList@{ModelPartList}!columnCount@{columnCount}}
+\index{columnCount@{columnCount}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{columnCount()}{columnCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a4a6ebf42f2f1c5c0242154d093295756} 
+int Model\+Part\+List\+::column\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{}\end{DoxyParamCaption}) const}
+
+Return column count 
+\begin{DoxyParams}{Parameters}
+{\em parent} & is not used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of columns in the tree view -\/ "{}\+Part"{} and "{}\+Visible"{}, i.\+e. 2 in this case 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_ae0af4bc07e14140f65e1db531257c94d}\index{ModelPartList@{ModelPartList}!columnCount@{columnCount}}
+\index{columnCount@{columnCount}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{columnCount()}{columnCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_ae0af4bc07e14140f65e1db531257c94d} 
+int Model\+Part\+List\+::column\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the number of columns in the model. 
+
+The number of columns is determined by the column count of the root item. This is typically 2 (Part Name, Visibility).
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent index (not used in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of columns. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a60923d947a2eafb5dfabe1cf8461807e}\index{ModelPartList@{ModelPartList}!data@{data}}
+\index{data@{data}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a60923d947a2eafb5dfabe1cf8461807e} 
+QVariant Model\+Part\+List\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{, }\item[{int}]{role}{}\end{DoxyParamCaption}) const}
+
+This returns the value of a particular row (i.\+e. the item index) and columns (i.\+e. either the "{}\+Part"{} or "{}\+Visible"{} property). It is used by QT internally -\/ this is how Qt retrieves the text to display in the Tree\+View 
+\begin{DoxyParams}{Parameters}
+{\em index} & in a stucture Qt uses to specify the row and column it wants data for \\
+\hline
+{\em role} & is how Qt specifies what it wants to do with the data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a QVariant which is a generic variable used to represent any Qt class type, in this case the QVariant will be a string 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a59ef0e03a214d3440d1ce86e5c64ba32}\index{ModelPartList@{ModelPartList}!data@{data}}
+\index{data@{data}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a59ef0e03a214d3440d1ce86e5c64ba32} 
+QVariant Model\+Part\+List\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{, }\item[{int}]{role}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the data for the item at the given index and role. 
+
+This function retrieves the data to be displayed for a specific item in the model. It only supports the Qt\+::\+Display\+Role, providing the name or visibility status of the \doxylink{class_model_part}{Model\+Part}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the item for which data is requested. \\
+\hline
+{\em role} & The role of the data being requested (e.\+g., Qt\+::\+Display\+Role, Qt\+::\+Edit\+Role). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data for the item, as a QVariant. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_ac28fbfeaf57aafc946127db8225c00b5}\index{ModelPartList@{ModelPartList}!flags@{flags}}
+\index{flags@{flags}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{flags()}{flags()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_ac28fbfeaf57aafc946127db8225c00b5} 
+Qt\+::\+Item\+Flags Model\+Part\+List\+::flags (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const}
+
+Standard function used by Qt internally. 
+\begin{DoxyParams}{Parameters}
+{\em index} & in a stucture Qt uses to specify the row and column it wants data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Qt item flags 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_aded47caa71080090631c021c21bf4e6d}\index{ModelPartList@{ModelPartList}!flags@{flags}}
+\index{flags@{flags}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{flags()}{flags()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_aded47caa71080090631c021c21bf4e6d} 
+Qt\+::\+Item\+Flags Model\+Part\+List\+::flags (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the flags for the item at the given index. 
+
+Determines how the item can be interacted with (e.\+g., selectable, editable). The flags are combined to indicate the supported interactions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item flags. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a1b6e2e108802afbc45e4bd054dccf982}\index{ModelPartList@{ModelPartList}!getRootItem@{getRootItem}}
+\index{getRootItem@{getRootItem}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{getRootItem()}{getRootItem()}}
+{\footnotesize\ttfamily \label{class_model_part_list_a1b6e2e108802afbc45e4bd054dccf982} 
+\mbox{\hyperlink{class_model_part}{Model\+Part}} \texorpdfstring{$\ast$}{*} Model\+Part\+List\+::get\+Root\+Item (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get a pointer to the root item of the tree \begin{DoxyReturn}{Returns}
+the root item pointer 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a6a54464c7907f0c18c2f5edd7cb4a51e}\index{ModelPartList@{ModelPartList}!headerData@{headerData}}
+\index{headerData@{headerData}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{headerData()}{headerData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a6a54464c7907f0c18c2f5edd7cb4a51e} 
+QVariant Model\+Part\+List\+::header\+Data (\begin{DoxyParamCaption}\item[{int}]{section}{, }\item[{Qt\+::\+Orientation}]{orientation}{, }\item[{int}]{role}{}\end{DoxyParamCaption}) const}
+
+Standard function used by Qt internally. \Hypertarget{class_model_part_list_a433d50449a83c42eb8c0384c7b7c0fea}\index{ModelPartList@{ModelPartList}!headerData@{headerData}}
+\index{headerData@{headerData}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{headerData()}{headerData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a433d50449a83c42eb8c0384c7b7c0fea} 
+QVariant Model\+Part\+List\+::header\+Data (\begin{DoxyParamCaption}\item[{int}]{section}{, }\item[{Qt\+::\+Orientation}]{orientation}{, }\item[{int}]{role}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the header data for the given section, orientation, and role. 
+
+Provides the header labels for the columns of the model. For horizontal headers, it returns "{}\+Part"{} for the first column and "{}\+Visible?"{} for the second column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em section} & The section number (column number for horizontal headers). \\
+\hline
+{\em orientation} & The orientation of the header (Qt\+::\+Horizontal or Qt\+::\+Vertical). \\
+\hline
+{\em role} & The role of the data being requested (e.\+g., Qt\+::\+Display\+Role). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The header data. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a5698ba9ca23f010369f12ff4a97976e2}\index{ModelPartList@{ModelPartList}!index@{index}}
+\index{index@{index}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a5698ba9ca23f010369f12ff4a97976e2} 
+QModel\+Index Model\+Part\+List\+::index (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{, }\item[{const QModel\+Index \&}]{parent}{}\end{DoxyParamCaption}) const}
+
+Get a valid QModel\+Index for a location in the tree (row is the row in the tree under "{}parent"{} or under the root of the tree if parent isnt specified. Column is either 0 = "{}\+Part"{} or 1 = "{}\+Visible"{} in this example 
+\begin{DoxyParams}{Parameters}
+{\em row} & is the item index \\
+\hline
+{\em column} & is 0 or 1 -\/ part name or visible stringstream \\
+\hline
+{\em parent} & where the row is referenced from, usually the tree root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the QModel\+Index structure 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a36d3309449f228eaed85a332a725be15}\index{ModelPartList@{ModelPartList}!index@{index}}
+\index{index@{index}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a36d3309449f228eaed85a332a725be15} 
+QModel\+Index Model\+Part\+List\+::index (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{, }\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the index for the item in the model given its row, column and parent. 
+
+This method is used to create a QModel\+Index for a specific item in the model. The QModel\+Index is a lightweight pointer to an item in the model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row number of the item. \\
+\hline
+{\em column} & The column number of the item. \\
+\hline
+{\em parent} & The QModel\+Index of the parent item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The QModel\+Index of the item at the given row and column with the specified parent. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a2aeb9586030b325193894ddfe99e629c}\index{ModelPartList@{ModelPartList}!parent@{parent}}
+\index{parent@{parent}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a2aeb9586030b325193894ddfe99e629c} 
+QModel\+Index Model\+Part\+List\+::parent (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const}
+
+Take a QModel\+Index for an item, get a QModel Index for its parent 
+\begin{DoxyParams}{Parameters}
+{\em index} & of item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index of parent 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a95162d13f90586be9b645f02cc4694f4}\index{ModelPartList@{ModelPartList}!parent@{parent}}
+\index{parent@{parent}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a95162d13f90586be9b645f02cc4694f4} 
+QModel\+Index Model\+Part\+List\+::parent (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the parent index for the given index. 
+
+This method returns the QModel\+Index of the parent of the item at the given index. If the item is a top-\/level item, it returns an invalid QModel\+Index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the item for which the parent is requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The QModel\+Index of the parent of the item at the given index. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a05d52c5cac09750d28ad041ec6a3d5ab}\index{ModelPartList@{ModelPartList}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a05d52c5cac09750d28ad041ec6a3d5ab} 
+int Model\+Part\+List\+::row\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{}\end{DoxyParamCaption}) const}
+
+Get number of rows (items) under an item in tree 
+\begin{DoxyParams}{Parameters}
+{\em is} & the parent, all items under this will be counted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of children 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_a789e0f0faac195b26e33d6d26ee37007}\index{ModelPartList@{ModelPartList}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_model_part_list_a789e0f0faac195b26e33d6d26ee37007} 
+int Model\+Part\+List\+::row\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent}{ = {\ttfamily QModelIndex()}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Returns the number of rows under the given parent. 
+
+If the parent is invalid, it returns the number of top-\/level rows in the model. Otherwise, it returns the number of children of the parent item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The QModel\+Index of the parent item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows under the given parent. 
+\end{DoxyReturn}
+\Hypertarget{class_model_part_list_ae46ca3f30caafbbb7125f04860625243}\index{ModelPartList@{ModelPartList}!setData@{setData}}
+\index{setData@{setData}!ModelPartList@{ModelPartList}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily \label{class_model_part_list_ae46ca3f30caafbbb7125f04860625243} 
+bool Model\+Part\+List\+::set\+Data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index}{, }\item[{const QVariant \&}]{value}{, }\item[{int}]{role}{ = {\ttfamily Qt\+:\+:EditRole}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Sets the data for the item at the given index and role. 
+
+This method sets the data associated with a specific item in the model. It handles changes to the visibility of a \doxylink{class_model_part}{Model\+Part}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the item to set data for. \\
+\hline
+{\em value} & The new data value. \\
+\hline
+{\em role} & The role of the data to set (e.\+g., Qt\+::\+Display\+Role, Qt\+::\+Edit\+Role). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the data was successfully set; otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model\+Part\+List.\+cpp\item 
+\mbox{\hyperlink{_model_part_list_8h}{Model\+Part\+List.\+h}}\end{DoxyCompactItemize}

@@ -31,7 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot 2025-05-05 165119.png"/></td>
   <td id="projectalign">
    <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
@@ -111,8 +111,6 @@ $(function(){initNavTree('class_model_part.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">ModelPart Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_model_part_8h_source.html">ModelPart.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,7 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4f22ba9a54525edde005cb4eb7366648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_model_part.html">ModelPart</a>.  <br /></td></tr>
 <tr class="separator:a4f22ba9a54525edde005cb4eb7366648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3b00630e9866e3e8fd648d28b7f016" id="r_a0b3b00630e9866e3e8fd648d28b7f016"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b3b00630e9866e3e8fd648d28b7f016">~ModelPart</a> ()</td></tr>
-<tr class="memdesc:a0b3b00630e9866e3e8fd648d28b7f016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="class_model_part.html">ModelPart</a>.  <br /></td></tr>
+<tr class="memdesc:a0b3b00630e9866e3e8fd648d28b7f016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="class_model_part.html">ModelPart</a>. Deletes all child <a class="el" href="class_model_part.html">ModelPart</a> objects. It recursively deletes all children.  <br /></td></tr>
 <tr class="separator:a0b3b00630e9866e3e8fd648d28b7f016"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52074db110367665c3e262919e172c98" id="r_a52074db110367665c3e262919e172c98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52074db110367665c3e262919e172c98">appendChild</a> (<a class="el" href="class_model_part.html">ModelPart</a> *item)</td></tr>
 <tr class="memdesc:a52074db110367665c3e262919e172c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a child <a class="el" href="class_model_part.html">ModelPart</a> to this part.  <br /></td></tr>
@@ -141,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a766074ee9574b9695d7b4f49f147381c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data for the specified column.  <br /></td></tr>
 <tr class="separator:a766074ee9574b9695d7b4f49f147381c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40112df77afcccbc969d28243117831" id="r_ad40112df77afcccbc969d28243117831"><td class="memItemLeft" align="right" valign="top">vtkActor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad40112df77afcccbc969d28243117831">getNewActor</a> ()</td></tr>
-<tr class="memdesc:ad40112df77afcccbc969d28243117831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new VTK actor for rendering (e.g., in VR).  <br /></td></tr>
+<tr class="memdesc:ad40112df77afcccbc969d28243117831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new VTK actor for rendering (e.g., in VR). This creates a separate actor, potentially with a different mapper. The caller is responsible for managing the lifetime of the returned actor.  <br /></td></tr>
 <tr class="separator:ad40112df77afcccbc969d28243117831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9be3859d2a298e88d850a2480b7639f7" id="r_a9be3859d2a298e88d850a2480b7639f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model_part.html">ModelPart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9be3859d2a298e88d850a2480b7639f7">parentItem</a> ()</td></tr>
 <tr class="memdesc:a9be3859d2a298e88d850a2480b7639f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parent <a class="el" href="class_model_part.html">ModelPart</a>.  <br /></td></tr>
@@ -159,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8d004c61b9f9cb0da895956a4c22b97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an STL file and creates the initial VTK actor for this part.  <br /></td></tr>
 <tr class="separator:a8d004c61b9f9cb0da895956a4c22b97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d845a3cb1d357a0c2f4ffb131e73116" id="r_a3d845a3cb1d357a0c2f4ffb131e73116"><td class="memItemLeft" align="right" valign="top">vtkSmartPointer&lt; vtkActor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d845a3cb1d357a0c2f4ffb131e73116">getActor</a> ()</td></tr>
-<tr class="memdesc:a3d845a3cb1d357a0c2f4ffb131e73116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the primary VTK actor associated with this <a class="el" href="class_model_part.html">ModelPart</a>.  <br /></td></tr>
+<tr class="memdesc:a3d845a3cb1d357a0c2f4ffb131e73116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the primary VTK actor associated with this <a class="el" href="class_model_part.html">ModelPart</a>. This actor is typically used for GUI rendering. The returned pointer is managed by a vtkSmartPointer internally.  <br /></td></tr>
 <tr class="separator:a3d845a3cb1d357a0c2f4ffb131e73116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64a7964bb56b22e83171e4821ce2c728" id="r_a64a7964bb56b22e83171e4821ce2c728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64a7964bb56b22e83171e4821ce2c728">removeAllChildren</a> ()</td></tr>
 <tr class="memdesc:a64a7964bb56b22e83171e4821ce2c728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all child <a class="el" href="class_model_part.html">ModelPart</a> objects from this part.  <br /></td></tr>
@@ -185,14 +183,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a304edd257757bc87925552ef81fc47cd" id="r_a304edd257757bc87925552ef81fc47cd"><td class="memItemLeft" align="right" valign="top">vtkSmartPointer&lt; vtkPolyData &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a304edd257757bc87925552ef81fc47cd">polyData</a></td></tr>
-<tr class="memdesc:a304edd257757bc87925552ef81fc47cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the polygonal data of the model (potentially for more advanced manipulation).  <br /></td></tr>
+<tr class="memitem:a304edd257757bc87925552ef81fc47cd" id="r_a304edd257757bc87925552ef81fc47cd"><td class="memItemLeft" align="right" valign="top"><a id="a304edd257757bc87925552ef81fc47cd" name="a304edd257757bc87925552ef81fc47cd"></a>
+vtkSmartPointer&lt; vtkPolyData &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>polyData</b></td></tr>
+<tr class="memdesc:a304edd257757bc87925552ef81fc47cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the polygonal data of the model (potentially for more advanced manipulation). <br /></td></tr>
 <tr class="separator:a304edd257757bc87925552ef81fc47cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_model_part_8h_source.html#l00023">23</a> of file <a class="el" href="_model_part_8h_source.html">ModelPart.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4f22ba9a54525edde005cb4eb7366648" name="a4f22ba9a54525edde005cb4eb7366648"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f22ba9a54525edde005cb4eb7366648">&#9670;&#160;</a></span>ModelPart()</h2>
 
@@ -224,8 +220,6 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00024">24</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a0b3b00630e9866e3e8fd648d28b7f016" name="a0b3b00630e9866e3e8fd648d28b7f016"></a>
@@ -243,12 +237,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destroys the <a class="el" href="class_model_part.html">ModelPart</a>. </p>
-<p>Destructor for the <a class="el" href="class_model_part.html">ModelPart</a> class.</p>
-<p>Deletes all child <a class="el" href="class_model_part.html">ModelPart</a> objects. It recursively deletes all children.</p>
-<p>Cleans up any child items. </p>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00032">32</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
+<p>Destroys the <a class="el" href="class_model_part.html">ModelPart</a>. Deletes all child <a class="el" href="class_model_part.html">ModelPart</a> objects. It recursively deletes all children. </p>
+<p>Destructor for the <a class="el" href="class_model_part.html">ModelPart</a> class. Cleans up any child items. </p>
 
 </div>
 </div>
@@ -277,8 +267,6 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00040">40</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,8 +302,6 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The child <a class="el" href="class_model_part.html">ModelPart</a>, or nullptr if the row is invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00050">50</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="aea4bb035b2b3827c0abf677fb9dc68ce" name="aea4bb035b2b3827c0abf677fb9dc68ce"></a>
@@ -339,8 +325,6 @@ Public Attributes</h2></td></tr>
 <dd>
 The number of child items. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00060">60</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a94623f4e95be3c462297c1abc7b6f3c7" name="a94623f4e95be3c462297c1abc7b6f3c7"></a>
@@ -363,8 +347,6 @@ The number of child items. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of data columns.</dd>
 <dd>
 The number of columns. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00068">68</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -400,8 +382,6 @@ The number of columns. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The data for the column, or an empty QVariant if the column is invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00077">77</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a3d845a3cb1d357a0c2f4ffb131e73116" name="a3d845a3cb1d357a0c2f4ffb131e73116"></a>
@@ -419,13 +399,11 @@ The number of columns. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the primary VTK actor associated with this <a class="el" href="class_model_part.html">ModelPart</a>. </p>
+<p>Returns the primary VTK actor associated with this <a class="el" href="class_model_part.html">ModelPart</a>. This actor is typically used for GUI rendering. The returned pointer is managed by a vtkSmartPointer internally. </p>
 <p>Gets the VTK actor associated with this <a class="el" href="class_model_part.html">ModelPart</a>.</p>
-<p>This actor is typically used for GUI rendering. The returned pointer is managed by a vtkSmartPointer internally. </p><dl class="section return"><dt>Returns</dt><dd>A vtkSmartPointer to the vtkActor.</dd>
+<dl class="section return"><dt>Returns</dt><dd>A vtkSmartPointer to the vtkActor.</dd>
 <dd>
 The VTK actor. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00182">182</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,8 +426,6 @@ The VTK actor. </dd></dl>
 <p>Gets the color as a QColor object.</p>
 <dl class="section return"><dt>Returns</dt><dd>The color as a QColor. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00198">198</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a2e218138ad076a99db3c0ee2e82ea922" name="a2e218138ad076a99db3c0ee2e82ea922"></a>
@@ -470,8 +446,6 @@ The VTK actor. </dd></dl>
 <p>Returns the blue color component of the <a class="el" href="class_model_part.html">ModelPart</a>. </p>
 <p>Gets the blue component of the color.</p>
 <dl class="section return"><dt>Returns</dt><dd>The blue color component (0-255). </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00136">136</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -494,8 +468,6 @@ The VTK actor. </dd></dl>
 <p>Gets the green component of the color.</p>
 <dl class="section return"><dt>Returns</dt><dd>The green color component (0-255). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00133">133</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="aa974125427ff13c6d84417aa98db4115" name="aa974125427ff13c6d84417aa98db4115"></a>
@@ -517,8 +489,6 @@ The VTK actor. </dd></dl>
 <p>Gets the red component of the color.</p>
 <dl class="section return"><dt>Returns</dt><dd>The red color component (0-255). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00130">130</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="ad40112df77afcccbc969d28243117831" name="ad40112df77afcccbc969d28243117831"></a>
@@ -536,14 +506,12 @@ The VTK actor. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a new VTK actor for rendering (e.g., in VR). </p>
+<p>Returns a new VTK actor for rendering (e.g., in VR). This creates a separate actor, potentially with a different mapper. The caller is responsible for managing the lifetime of the returned actor. </p>
 <p>Gets a new VTK actor for VR rendering.</p>
-<p>This creates a separate actor, potentially with a different mapper. The caller is responsible for managing the lifetime of the returned actor. </p><dl class="section return"><dt>Returns</dt><dd>A new vtkActor, or nullptr if no STL data is loaded.</dd>
+<dl class="section return"><dt>Returns</dt><dd>A new vtkActor, or nullptr if no STL data is loaded.</dd>
 <dd>
 A new VTK actor, or nullptr if there's no original actor.</dd></dl>
 <p>This function creates a separate actor for VR rendering. The original actor is used for GUI rendering. </p>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00217">217</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -572,8 +540,6 @@ A new VTK actor, or nullptr if there's no original actor.</dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00163">163</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a9be3859d2a298e88d850a2480b7639f7" name="a9be3859d2a298e88d850a2480b7639f7"></a>
@@ -597,8 +563,6 @@ A new VTK actor, or nullptr if there's no original actor.</dd></dl>
 <dd>
 The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00098">98</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a64a7964bb56b22e83171e4821ce2c728" name="a64a7964bb56b22e83171e4821ce2c728"></a>
@@ -618,8 +582,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
 
 <p>Removes all child <a class="el" href="class_model_part.html">ModelPart</a> objects from this part. </p>
 <p>Removes all child items. </p>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00189">189</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -641,8 +603,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
 <p>Returns the row of this <a class="el" href="class_model_part.html">ModelPart</a> within its parent's children. </p>
 <p>Gets the row of this item within its parent.</p>
 <dl class="section return"><dt>Returns</dt><dd>The row index. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00106">106</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -670,8 +630,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00206">206</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
 
 </div>
 </div>
@@ -712,8 +670,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00118">118</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a766074ee9574b9695d7b4f49f147381c" name="a766074ee9574b9695d7b4f49f147381c"></a>
@@ -746,8 +702,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00088">88</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a96c8cca32bd530bf28c6ab6a1ccc2353" name="a96c8cca32bd530bf28c6ab6a1ccc2353"></a>
@@ -774,8 +728,6 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00142">142</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
 <a id="aa37200ef9b7eed6b970fef1b08234f3a" name="aa37200ef9b7eed6b970fef1b08234f3a"></a>
@@ -799,29 +751,12 @@ The parent <a class="el" href="class_model_part.html">ModelPart</a>. </dd></dl>
 <dd>
 True if visible, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_model_part_8cpp_source.html#l00155">155</a> of file <a class="el" href="_model_part_8cpp_source.html">ModelPart.cpp</a>.</p>
-
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a304edd257757bc87925552ef81fc47cd" name="a304edd257757bc87925552ef81fc47cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a304edd257757bc87925552ef81fc47cd">&#9670;&#160;</a></span>polyData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vtkSmartPointer&lt;vtkPolyData&gt; ModelPart::polyData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Holds the polygonal data of the model (potentially for more advanced manipulation). </p>
-
-<p class="definition">Definition at line <a class="el" href="_model_part_8h_source.html#l00157">157</a> of file <a class="el" href="_model_part_8h_source.html">ModelPart.h</a>.</p>
-
-</div>
-</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_model_part_8h_source.html">ModelPart.h</a></li>
+<li><a class="el" href="_model_part_8cpp.html">ModelPart.cpp</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

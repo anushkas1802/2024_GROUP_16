@@ -1,0 +1,20 @@
+\doxysection{Model\+Part.\+cpp File Reference}
+\hypertarget{_model_part_8cpp}{}\label{_model_part_8cpp}\index{ModelPart.cpp@{ModelPart.cpp}}
+
+
+Implementation of the \doxylink{class_model_part}{Model\+Part} class, which represents a node in a hierarchical model structure.  
+
+
+{\ttfamily \#include "{}Model\+Part.\+h"{}}\newline
+{\ttfamily \#include $<$vtk\+STLReader.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Poly\+Data\+Mapper.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Actor.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Property.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Poly\+Data.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Data\+Set\+Mapper.\+h$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \doxylink{class_model_part}{Model\+Part} class, which represents a node in a hierarchical model structure. 
+
+This class manages hierarchical data items typically used in model tree structures. It includes support for VTK-\/based STL model visualization and coloring. The class can store a list of child parts, assign parent-\/child relationships, store metadata, and manage 3D actor representation including color and visibility. 

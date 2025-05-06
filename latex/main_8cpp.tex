@@ -1,0 +1,51 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Entry point for the application.  
+
+
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \#include $<$QApplication$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em The main function for the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entry point for the application. 
+
+This file contains the main function which initializes the Qt application, creates and displays the main window, and starts the event loop. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+The main function for the application. 
+
+Initializes the QApplication, constructs the \doxylink{class_main_window}{Main\+Window} instance, shows it, and starts the Qt event loop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument count from the command line. \\
+\hline
+{\em argv} & Argument vector from the command line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the QApplication event loop execution. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Initializes Qt application with command-\/line arguments
+
+\texorpdfstring{$<$}{<} Constructs the main application window
+
+\texorpdfstring{$<$}{<} Displays the main window on screen
+
+\texorpdfstring{$<$}{<} Starts the Qt event loop

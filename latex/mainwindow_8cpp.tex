@@ -1,0 +1,39 @@
+\doxysection{mainwindow.\+cpp File Reference}
+\hypertarget{mainwindow_8cpp}{}\label{mainwindow_8cpp}\index{mainwindow.cpp@{mainwindow.cpp}}
+
+
+Implementation of the \doxylink{class_main_window}{Main\+Window} class for handling STL file visualization and VR interaction.  
+
+
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \#include "{}ui\+\_\+mainwindow.\+h"{}}\newline
+{\ttfamily \#include "{}Model\+Part.\+h"{}}\newline
+{\ttfamily \#include "{}Model\+Part\+List.\+h"{}}\newline
+{\ttfamily \#include "{}optiondialog.\+h"{}}\newline
+{\ttfamily \#include "{}VRRender\+Thread.\+h"{}}\newline
+{\ttfamily \#include $<$QFile\+Dialog$>$}\newline
+{\ttfamily \#include $<$QMenu$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QFile\+Info$>$}\newline
+{\ttfamily \#include $<$QDir$>$}\newline
+{\ttfamily \#include $<$QFile\+Info\+List$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include $<$vtk\+Generic\+Open\+GLRender\+Window.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Renderer.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Poly\+Data\+Mapper.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Actor.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Property.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Camera.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+New.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Smart\+Pointer.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Named\+Colors.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Cylinder\+Source.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+STLReader.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Data\+Set\+Mapper.\+h$>$}\newline
+{\ttfamily \#include $<$vtk\+Callback\+Command.\+h$>$}\newline
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \doxylink{class_main_window}{Main\+Window} class for handling STL file visualization and VR interaction. 
+
+This file defines the main window UI logic for managing STL file loading, rendering using VTK, and VR rendering in a Qt application. 

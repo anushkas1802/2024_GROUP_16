@@ -1,0 +1,73 @@
+\doxysection{Model\+Part.\+h}
+\hypertarget{_model_part_8h_source}{}\label{_model_part_8h_source}\mbox{\hyperlink{_model_part_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ VIEWER\_MODELPART\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ VIEWER\_MODELPART\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QColor>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vtkSTLReader.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vtkMapper.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vtkActor.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vtkDataSetMapper.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vtkSmartPointer.h>}\ \textcolor{comment}{//\ Added\ for\ vtkSmartPointer\ usage}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vtkPolyData.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}(\textcolor{keyword}{const}\ QList<QVariant>\&\ \mbox{\hyperlink{class_model_part_a178655da543bd0dae2d0ed1e2ea38a56}{data}},\ \mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_model_part_a0b3b00630e9866e3e8fd648d28b7f016}{\string~ModelPart}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_a52074db110367665c3e262919e172c98}{appendChild}}(\mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}*\ item);}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}*\ \mbox{\hyperlink{class_model_part_af32381b69415f0aa6bdfd84435f842cc}{child}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_model_part_a05bc0dd06a3658d9a2c46fa717dec910}{row}});}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_model_part_aea4bb035b2b3827c0abf677fb9dc68ce}{childCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_model_part_a94623f4e95be3c462297c1abc7b6f3c7}{columnCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ QVariant\ \mbox{\hyperlink{class_model_part_a178655da543bd0dae2d0ed1e2ea38a56}{data}}(\textcolor{keywordtype}{int}\ column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_a766074ee9574b9695d7b4f49f147381c}{setData}}(\textcolor{keywordtype}{int}\ column,\ \textcolor{keyword}{const}\ QVariant\&\ value);}
+\DoxyCodeLine{00076\ \ \ \ \ vtkActor*\ \mbox{\hyperlink{class_model_part_ad40112df77afcccbc969d28243117831}{getNewActor}}();}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}*\ \mbox{\hyperlink{class_model_part_a9be3859d2a298e88d850a2480b7639f7}{parentItem}}();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_model_part_a05bc0dd06a3658d9a2c46fa717dec910}{row}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Visibility}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_a96c8cca32bd530bf28c6ab6a1ccc2353}{setVisible}}(\textcolor{keywordtype}{bool}\ isVisible);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_model_part_aa37200ef9b7eed6b970fef1b08234f3a}{visible}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ STL\ loading\ and\ actor}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_a8d004c61b9f9cb0da895956a4c22b97b}{loadSTL}}(QString\ fileName);}
+\DoxyCodeLine{00112\ \ \ \ \ vtkSmartPointer<vtkActor>\ \mbox{\hyperlink{class_model_part_a3d845a3cb1d357a0c2f4ffb131e73116}{getActor}}();}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_a64a7964bb56b22e83171e4821ce2c728}{removeAllChildren}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ Color\ manipulation}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_abbaaa19d7d24b9f1138072d594bd838c}{setColour}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ R,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ G,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ B);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_model_part_aa974125427ff13c6d84417aa98db4115}{getColourR}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_model_part_aaa8f00a3629526890007b5934807d354}{getColourG}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_model_part_a2e218138ad076a99db3c0ee2e82ea922}{getColourB}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ ✅\ New\ convenience\ color\ methods}}
+\DoxyCodeLine{00147\ \ \ \ \ QColor\ \mbox{\hyperlink{class_model_part_aa2781780f935cc64c541f1f26a8553d5}{getColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_model_part_ab8ea6f5bbfb79882c22061d1446829aa}{setColor}}(\textcolor{keyword}{const}\ QColor\&\ color);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00157\ \ \ \ \ vtkSmartPointer<vtkPolyData>\ \mbox{\hyperlink{class_model_part_a304edd257757bc87925552ef81fc47cd}{polyData}};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00164\ \ \ \ \ QList<ModelPart*>\ m\_childItems;}
+\DoxyCodeLine{00170\ \ \ \ \ QList<QVariant>\ m\_itemData;}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{class_model_part_a4f22ba9a54525edde005cb4eb7366648}{ModelPart}}*\ m\_parentItem;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{bool}\ isVisible;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00183\ \ \ \ \ vtkSmartPointer<vtkSTLReader>\ stlReader;}
+\DoxyCodeLine{00187\ \ \ \ \ vtkSmartPointer<vtkMapper>\ stlMapper;}
+\DoxyCodeLine{00191\ \ \ \ \ vtkSmartPointer<vtkActor>\ stlActor;}
+\DoxyCodeLine{00195\ \ \ \ \ vtkSmartPointer<vtkDataSetMapper>\ newMapper;}
+\DoxyCodeLine{00199\ \ \ \ \ vtkSmartPointer<vtkActor>\ newActor;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ colourR;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ colourG;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ colourB;}
+\DoxyCodeLine{00213\ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VIEWER\_MODELPART\_H}}
+
+\end{DoxyCode}

@@ -31,7 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot 2025-05-05 165119.png"/></td>
   <td id="projectalign">
    <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
@@ -112,7 +112,7 @@ $(function(){initNavTree('class_main_window.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> class.  
+<p>The <a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> class. This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
@@ -126,26 +126,23 @@ Inheritance diagram for MainWindow:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:a84941c4d4f908c10cee89e0264654c91" id="r_a84941c4d4f908c10cee89e0264654c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84941c4d4f908c10cee89e0264654c91">statusUpdateMessageSignal</a> (const QString &amp;message, int timeout)</td></tr>
-<tr class="memdesc:a84941c4d4f908c10cee89e0264654c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to update the status bar with a message.  <br /></td></tr>
+<tr class="memdesc:a84941c4d4f908c10cee89e0264654c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to update the status bar with a message. This signal is emitted when a status update is needed in the main window's status bar.  <br /></td></tr>
 <tr class="separator:a84941c4d4f908c10cee89e0264654c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af402adfae27c408a41f0b6ae50351957" id="r_af402adfae27c408a41f0b6ae50351957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af402adfae27c408a41f0b6ae50351957">sendActors</a> (vtkActorCollection *actors)</td></tr>
-<tr class="memdesc:af402adfae27c408a41f0b6ae50351957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to send the collection of actors to another component (e.g., VR thread).  <br /></td></tr>
+<tr class="memdesc:af402adfae27c408a41f0b6ae50351957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal to send the collection of actors to another component (e.g., VR thread). This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread.  <br /></td></tr>
 <tr class="separator:af402adfae27c408a41f0b6ae50351957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a996c5a2b6f77944776856f08ec30858d" id="r_a996c5a2b6f77944776856f08ec30858d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a996c5a2b6f77944776856f08ec30858d">MainWindow</a> (QWidget *parent=nullptr)</td></tr>
-<tr class="memdesc:a996c5a2b6f77944776856f08ec30858d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> constructor.  <br /></td></tr>
+<tr class="memdesc:a996c5a2b6f77944776856f08ec30858d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> constructor. Constructs the main window.  <br /></td></tr>
 <tr class="separator:a996c5a2b6f77944776856f08ec30858d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7" id="r_ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
-<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> destructor.  <br /></td></tr>
+<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> destructor. Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread.  <br /></td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> class. </p>
-<p>This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread. </p>
-
-<p class="definition">Definition at line <a class="el" href="mainwindow_8h_source.html#l00038">38</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<div class="textblock"><p>The <a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> class. This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a996c5a2b6f77944776856f08ec30858d" name="a996c5a2b6f77944776856f08ec30858d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a996c5a2b6f77944776856f08ec30858d">&#9670;&#160;</a></span>MainWindow()</h2>
@@ -170,9 +167,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> constructor. </p>
-<p>Constructs the <a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> and sets up UI components and signal connections.</p>
-<p>Constructs the main window. </p><dl class="params"><dt>Parameters</dt><dd>
+<p><a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> constructor. Constructs the main window. </p>
+<p>Constructs the <a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> and sets up UI components and signal connections.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>The parent widget, defaults to nullptr.</td></tr>
   </table>
@@ -185,8 +182,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00049">49</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -205,12 +200,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_main_window.html" title="The MainWindow class.">MainWindow</a> destructor. </p>
-<p>Destructor.</p>
-<p>Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread.</p>
-<p>Stops the VR thread if it is running and cleans up resources. </p>
-
-<p class="definition">Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00086">86</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<p><a class="el" href="class_main_window.html" title="The MainWindow class. This class defines the main window of the application, responsible for the user...">MainWindow</a> destructor. Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread. </p>
+<p>Destructor. Stops the VR thread if it is running and cleans up resources. </p>
 
 </div>
 </div>
@@ -238,8 +229,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Signal to send the collection of actors to another component (e.g., VR thread). </p>
-<p>This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Signal to send the collection of actors to another component (e.g., VR thread). This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">actors</td><td>The collection of VTK actors. </td></tr>
   </table>
@@ -275,8 +266,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Signal to update the status bar with a message. </p>
-<p>This signal is emitted when a status update is needed in the main window's status bar. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Signal to update the status bar with a message. This signal is emitted when a status update is needed in the main window's status bar. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>The message to display. </td></tr>
     <tr><td class="paramname">timeout</td><td>The duration (in milliseconds) to display the message. </td></tr>
@@ -286,6 +277,10 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
+<li><a class="el" href="mainwindow_8cpp.html">mainwindow.cpp</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

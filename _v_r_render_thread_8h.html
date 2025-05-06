@@ -31,7 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="logo_doxygen.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Screenshot 2025-05-05 165119.png"/></td>
   <td id="projectalign">
    <div id="projectname">VR Super Base-Station<span id="projectnumber">&#160;1.0.0</span>
    </div>
@@ -128,14 +128,12 @@ $(function(){initNavTree('_v_r_render_thread_8h.html',''); initResizable(true); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_r_render_thread.html">VRRenderThread</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor.  <a href="class_v_r_render_thread.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class inherits from the Qt class QThread which allows it to be a parallel thread to the <a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function for the application.">main()</a> thread, and also from vtkCommand which allows it to act as a "callback" for the vtkRenderWindowInteractor. This callback functionallity means that once the renderWindowInteractor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes.  <a href="class_v_r_render_thread.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>EEEE2046 - Software Engineering &amp; VR Project Template to add VR rendering to your application. </p>
 <dl class="section author"><dt>Author</dt><dd>P Evans 2022 </dd></dl>
-
-<p class="definition">Definition in file <a class="el" href="_v_r_render_thread_8h_source.html">VRRenderThread.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,0 +1,282 @@
+\doxysection{VRRender\+Thread Class Reference}
+\hypertarget{class_v_r_render_thread}{}\label{class_v_r_render_thread}\index{VRRenderThread@{VRRenderThread}}
+
+
+This class inherits from the Qt class QThread which allows it to be a parallel thread to the \doxylink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()} thread, and also from vtk\+Command which allows it to act as a "{}callback"{} for the vtk\+Render\+Window\+Interactor. This callback functionallity means that once the render\+Window\+Interactor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes.  
+
+
+
+
+{\ttfamily \#include $<$VRRender\+Thread.\+h$>$}
+
+Inheritance diagram for VRRender\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_v_r_render_thread}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command}} \{ \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2}{END\+\_\+\+RENDER}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f}{ROTATE\+\_\+X}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999}{ROTATE\+\_\+Y}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980}{ROTATE\+\_\+Z}}
+ \}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to signal the VR rendering loop to terminate. \end{DoxyCompactList}\item 
+enum \{ \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2}{END\+\_\+\+RENDER}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f}{ROTATE\+\_\+X}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999}{ROTATE\+\_\+Y}}
+, \mbox{\hyperlink{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980}{ROTATE\+\_\+Z}}
+ \}
+\begin{DoxyCompactList}\small\item\em List of command names. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}{VRRender\+Thread}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_v_r_render_thread}{VRRender\+Thread}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49}{\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread}} () override
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_v_r_render_thread}{VRRender\+Thread}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_r_render_thread_af21ba228242a26e1a2a88a8de32facc9}{add\+Actor\+Offline}} (vtk\+Smart\+Pointer$<$ vtk\+Actor $>$ actor)
+\begin{DoxyCompactList}\small\item\em Adds a VTK actor to the list of actors to be rendered in VR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_r_render_thread_abbc905472309a2da473241a596e43813}{issue\+Command}} (int cmd, double value)
+\begin{DoxyCompactList}\small\item\em Issues a command to the VR rendering thread to update rendering parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}{VRRender\+Thread}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_r_render_thread_a21c23037bf11cd2a1592076c7e499de0}{\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13}{add\+Actor\+Offline}} (vtk\+Actor \texorpdfstring{$\ast$}{*}actor)
+\begin{DoxyCompactList}\small\item\em Adds a VTK actor to the VR renderer before the VR interactor starts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_r_render_thread_abbc905472309a2da473241a596e43813}{issue\+Command}} (int cmd, double value)
+\begin{DoxyCompactList}\small\item\em Issues a command to the VR thread in a thread-\/safe manner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_v_r_render_thread_ae6937f678d9d29601b42abb1a2ea1427}\label{class_v_r_render_thread_ae6937f678d9d29601b42abb1a2ea1427} 
+enum VRRender\+Thread\+:: \{ ... \}  {\bfseries Command}
+\begin{DoxyCompactList}\small\item\em List of command names. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}{run}} () override
+\begin{DoxyCompactList}\small\item\em This function is the entry point for the VR rendering thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}{run}} () override
+\begin{DoxyCompactList}\small\item\em Re-\/implementation of the QThread\+::run() function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class inherits from the Qt class QThread which allows it to be a parallel thread to the \doxylink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()} thread, and also from vtk\+Command which allows it to act as a "{}callback"{} for the vtk\+Render\+Window\+Interactor. This callback functionallity means that once the render\+Window\+Interactor takes control of this thread to enable VR, it can callback to a function in the class to check to see if the user has requested any changes. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cd}\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cd} 
+anonymous enum}
+
+
+
+List of command names. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_RENDER@{END\_RENDER}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!END\_RENDER@{END\_RENDER}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2} 
+END\+\_\+\+RENDER&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to end the rendering loop \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_X@{ROTATE\_X}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_X@{ROTATE\_X}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f} 
+ROTATE\+\_\+X&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the X-\/axis \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Y@{ROTATE\_Y}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_Y@{ROTATE\_Y}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999} 
+ROTATE\+\_\+Y&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the Y-\/axis \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Z@{ROTATE\_Z}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_Z@{ROTATE\_Z}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980} 
+ROTATE\+\_\+Z&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the Z-\/axis \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}\index{VRRenderThread@{VRRenderThread}!Command@{Command}}
+\index{Command@{Command}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{Command}{Command}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669} 
+enum \mbox{\hyperlink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{VRRender\+Thread\+::\+Command}}}
+
+
+
+\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to signal the VR rendering loop to terminate. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_RENDER@{END\_RENDER}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!END\_RENDER@{END\_RENDER}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cdaeb6b8adc12fae7324ce378d7eab66bd2} 
+END\+\_\+\+RENDER&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to end the rendering loop \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_X@{ROTATE\_X}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_X@{ROTATE\_X}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda488dd609d69e9d105370454045b95d1f} 
+ROTATE\+\_\+X&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the X-\/axis \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Y@{ROTATE\_Y}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_Y@{ROTATE\_Y}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda9ccb54c849bfb5b9bd81727c70655999} 
+ROTATE\+\_\+Y&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the Y-\/axis \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROTATE\_Z@{ROTATE\_Z}!VRRenderThread@{VRRenderThread}}\index{VRRenderThread@{VRRenderThread}!ROTATE\_Z@{ROTATE\_Z}}}\Hypertarget{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980}\label{class_v_r_render_thread_a9250c05d40f573259d5c63e07856c2cda8e6f27f491016964ebb4359f6591d980} 
+ROTATE\+\_\+Z&\doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} to rotate around the Z-\/axis \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{VRRenderThread()}{VRRenderThread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196} 
+VRRender\+Thread\+::\+VRRender\+Thread (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the \doxylink{class_v_r_render_thread}{VRRender\+Thread}. 
+
+This constructor is called by the \doxylink{class_main_window}{Main\+Window} and runs in the primary program thread. It initializes the actor list and command variables. The Open\+VR rendering components are initialized in the \doxylink{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}{run()} method, as the interactor needs to run in the VR thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent QObject. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49}\index{VRRenderThread@{VRRenderThread}!````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}}
+\index{````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VRRenderThread()}{\string~VRRenderThread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a2fa57b06d1deb3cacb9bf2c142618b49} 
+VRRender\+Thread\+::\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor for the \doxylink{class_v_r_render_thread}{VRRender\+Thread}. 
+
+This destructor is crucial for managing resources. It is called when the VR thread is stopped. Ensure that all dynamically allocated memory and VTK objects are properly released here to prevent memory leaks during repeated start/stop cycles of the VR thread. \Hypertarget{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196}\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\index{VRRenderThread@{VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{VRRenderThread()}{VRRenderThread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a35976e55f6655840aa217aa8a066f196} 
+VRRender\+Thread\+::\+VRRender\+Thread (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructs a \doxylink{class_v_r_render_thread}{VRRender\+Thread} object. Initializes member variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent QObject (optional). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_a21c23037bf11cd2a1592076c7e499de0}\index{VRRenderThread@{VRRenderThread}!````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}}
+\index{````~VRRenderThread@{\texorpdfstring{$\sim$}{\string~}VRRenderThread}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VRRenderThread()}{\string~VRRenderThread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a21c23037bf11cd2a1592076c7e499de0} 
+VRRender\+Thread\+::\texorpdfstring{$\sim$}{\string~}\+VRRender\+Thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Destroys the \doxylink{class_v_r_render_thread}{VRRender\+Thread} object. Ensures proper cleanup of resources. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13}\index{VRRenderThread@{VRRenderThread}!addActorOffline@{addActorOffline}}
+\index{addActorOffline@{addActorOffline}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{addActorOffline()}{addActorOffline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_a17bb943e3b852339398cfbb7cb12cf13} 
+void VRRender\+Thread\+::add\+Actor\+Offline (\begin{DoxyParamCaption}\item[{vtk\+Actor \texorpdfstring{$\ast$}{*}}]{actor}{}\end{DoxyParamCaption})}
+
+
+
+Adds a VTK actor to the VR renderer before the VR interactor starts. 
+
+This method allows adding vtk\+Actor objects to the internal collection before the VR rendering loop and interactor are initialized. This is useful for setting up the initial VR scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor} & A pointer to the vtk\+Actor to be added. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_af21ba228242a26e1a2a88a8de32facc9}\index{VRRenderThread@{VRRenderThread}!addActorOffline@{addActorOffline}}
+\index{addActorOffline@{addActorOffline}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{addActorOffline()}{addActorOffline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_af21ba228242a26e1a2a88a8de32facc9} 
+void VRRender\+Thread\+::add\+Actor\+Offline (\begin{DoxyParamCaption}\item[{vtk\+Smart\+Pointer$<$ vtk\+Actor $>$}]{actor}{}\end{DoxyParamCaption})}
+
+
+
+Adds a VTK actor to the list of actors to be rendered in VR. 
+
+This method adds a given vtk\+Actor to the internal collection of actors that will be part of the VR scene. It also performs an initial transformation to position the actor in a sensible default location within the VR environment. This method is intended to be called from the main GUI thread {\itshape before} the VR rendering thread is started or when it\textquotesingle{}s not running to avoid thread safety issues with VTK.
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor} & A pointer to the vtk\+Actor object to be added to the VR scene. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_abbc905472309a2da473241a596e43813}\index{VRRenderThread@{VRRenderThread}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_abbc905472309a2da473241a596e43813} 
+void VRRender\+Thread\+::issue\+Command (\begin{DoxyParamCaption}\item[{int}]{cmd}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Issues a command to the VR rendering thread to update rendering parameters. 
+
+This method allows the main GUI thread to send commands to the VR rendering thread, such as rotation updates or a signal to end the rendering loop. This is a thread-\/safe way to control the VR scene from the GUI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & An integer representing the command to be executed (e.\+g., END\+\_\+\+RENDER, ROTATE\+\_\+X). \\
+\hline
+{\em value} & A double value associated with the command (e.\+g., rotation angle). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_abbc905472309a2da473241a596e43813}\index{VRRenderThread@{VRRenderThread}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_abbc905472309a2da473241a596e43813} 
+void VRRender\+Thread\+::issue\+Command (\begin{DoxyParamCaption}\item[{int}]{cmd}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Issues a command to the VR thread in a thread-\/safe manner. 
+
+This function sets internal variables to indicate the type of action (e.\+g., animation, visual effect) to perform in the rendering thread. The rendering thread will then implement the requested action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & An integer representing the command to be executed (from the \doxylink{class_v_r_render_thread_ae54e55debf52a3afee10238942ef5669}{Command} enum). \\
+\hline
+{\em value} & A double value associated with the command (e.\+g., rotation angle). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}\index{VRRenderThread@{VRRenderThread}!run@{run}}
+\index{run@{run}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661} 
+void VRRender\+Thread\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+This function is the entry point for the VR rendering thread. 
+
+It is executed when VRRender\+Thread\+::start() is called. This method initializes the VTK Open\+VR rendering pipeline, including the renderer, render window, interactor, and camera. It then enters a rendering loop that continues until the interactor is done or an END\+\_\+\+RENDER command is received. Within the loop, it updates the VR scene and handles VR events. \Hypertarget{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661}\index{VRRenderThread@{VRRenderThread}!run@{run}}
+\index{run@{run}!VRRenderThread@{VRRenderThread}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_v_r_render_thread_af5bbbaf8625fc42278476a43bf018661} 
+void VRRender\+Thread\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Re-\/implementation of the QThread\+::run() function. 
+
+This function is the entry point for the VR rendering thread. It initializes the VTK VR rendering components and starts the main rendering loop. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+VRRender\+Thread.\+cpp\item 
+\mbox{\hyperlink{_v_r_render_thread_8h}{VRRender\+Thread.\+h}}\end{DoxyCompactItemize}

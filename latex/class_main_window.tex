@@ -1,0 +1,112 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+The \doxylink{class_main_window}{Main\+Window} class. This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a84941c4d4f908c10cee89e0264654c91}{status\+Update\+Message\+Signal}} (const QString \&message, int timeout)
+\begin{DoxyCompactList}\small\item\em Signal to update the status bar with a message. This signal is emitted when a status update is needed in the main window\textquotesingle{}s status bar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_af402adfae27c408a41f0b6ae50351957}{send\+Actors}} (vtk\+Actor\+Collection \texorpdfstring{$\ast$}{*}actors)
+\begin{DoxyCompactList}\small\item\em Signal to send the collection of actors to another component (e.\+g., VR thread). This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_main_window}{Main\+Window} constructor. Constructs the main window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_main_window}{Main\+Window} destructor. Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_main_window}{Main\+Window} class. This class defines the main window of the application, responsible for the user interface, 3D rendering using VTK, and interaction with the VR rendering thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_a996c5a2b6f77944776856f08ec30858d} 
+Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxylink{class_main_window}{Main\+Window} constructor. Constructs the main window. 
+
+Constructs the \doxylink{class_main_window}{Main\+Window} and sets up UI components and signal connections.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget, defaults to nullptr.\\
+\hline
+\end{DoxyParams}
+This constructor initializes the main window, sets up the user interface using the provided {\ttfamily ui} object, establishes signal-\/slot connections for various UI elements, initializes the model part list and tree view, sets up the VTK rendering environment, and potentially starts the VR rendering thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget for this main window, typically {\ttfamily nullptr} for the top-\/level window. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
+\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_main_window}{Main\+Window} destructor. Destroys the main window, ensuring proper cleanup of resources, especially the VR rendering thread. 
+
+Destructor. Stops the VR thread if it is running and cleans up resources. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_window_af402adfae27c408a41f0b6ae50351957}\index{MainWindow@{MainWindow}!sendActors@{sendActors}}
+\index{sendActors@{sendActors}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{sendActors}{sendActors}}
+{\footnotesize\ttfamily \label{class_main_window_af402adfae27c408a41f0b6ae50351957} 
+void Main\+Window\+::send\+Actors (\begin{DoxyParamCaption}\item[{vtk\+Actor\+Collection \texorpdfstring{$\ast$}{*}}]{actors}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal to send the collection of actors to another component (e.\+g., VR thread). This signal is emitted to pass the current set of VTK actors, representing the visible 3D models, to another part of the application, such as the VR rendering thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actors} & The collection of VTK actors. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_a84941c4d4f908c10cee89e0264654c91}\index{MainWindow@{MainWindow}!statusUpdateMessageSignal@{statusUpdateMessageSignal}}
+\index{statusUpdateMessageSignal@{statusUpdateMessageSignal}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{statusUpdateMessageSignal}{statusUpdateMessageSignal}}
+{\footnotesize\ttfamily \label{class_main_window_a84941c4d4f908c10cee89e0264654c91} 
+void Main\+Window\+::status\+Update\+Message\+Signal (\begin{DoxyParamCaption}\item[{const QString \&}]{message}{, }\item[{int}]{timeout}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal to update the status bar with a message. This signal is emitted when a status update is needed in the main window\textquotesingle{}s status bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to display. \\
+\hline
+{\em timeout} & The duration (in milliseconds) to display the message. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}
